@@ -1,0 +1,12 @@
+﻿@model BilgeIK.MODEL.Entities.AppUser
+
+    @if (@Model.Photo == null)
+    {
+        <img src="~/uploads/noavatar.gif" class="rounded-circle" />
+    }
+    else
+    {
+        <img src="~/uploads/@Model.Photo" class="rounded-circle" />
+    }
+
+

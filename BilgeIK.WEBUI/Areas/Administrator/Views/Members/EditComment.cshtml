@@ -1,0 +1,52 @@
+﻿@model BilgeIK.MODEL.Entities.CustomerComment
+
+@{
+    ViewData["Title"] = "Yorum Düzenleme";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <div class="card">
+            <h2 class="doc-section-title">Yorum Düzenleme Formu</h2>
+            <div class="card-block">
+                <form asp-action="EditComment" method="post">
+                    <div class="row">
+                        <div class="col-md-12"><div asp-validation-summary="All" class="text-danger"></div></div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label asp-for="Comment" class="control-label"></label>
+                                <textarea asp-for="Comment" class="form-control" rows="5"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label asp-for="Status" class="control-label"></label>
+                                <select asp-for="@Model.Status" class="form-control js-example-basic-single" asp-items="Html.GetEnumSelectList<BilgeIK.CORE.Entity.Enums.Status>()"></select>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group form-check">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" asp-for="FeaturedComment" /> Öne Çıkarılan Yorum
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group text-center">
+                                <input asp-for="Id" type="hidden" class="form-control" />
+                                <button class="btn btn-raised-success"><i class="fa fa-save"></i> Güncelle</button>
+                            </div>
+                        </div> 
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

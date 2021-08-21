@@ -1,0 +1,43 @@
+﻿@model BilgeIK.WEBUI.ViewModels.DefinitionVM
+
+@{
+    ViewData["Title"] = "Tanımlama Ekle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-md-6 offset-lg-3">
+        <div class="card">
+            <h2 class="doc-section-title">Tanımlama Oluştur</h2>
+            <div class="card-body">
+                <form asp-action="AddDefinition" method="post">
+                    <div class="row">
+                        <div class="col-md-12"><div asp-validation-summary="ModelOnly" class="text-danger"></div></div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label asp-for="Name" class="control-label"></label>
+                                <input asp-for="Name" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label asp-for="DefinitionTypes" class="control-label"></label>
+                                <select asp-for="@Model.DefinitionTypes" class="form-control js-example-basic-single" asp-items="Html.GetEnumSelectList<BilgeIK.CORE.Entity.Enums.DefinitionType>()"></select>
+</div>
+                        </div>
+                        <div class="col-md-12 text-center">
+                            <div class="form-group">
+                                <input type="submit" value="Oluştur" class="btn btn-outline btn-outline-primary" />
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

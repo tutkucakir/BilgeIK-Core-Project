@@ -1,0 +1,41 @@
+﻿@model BilgeIK.WEBUI.ViewModels.RemoveCompanyVM
+
+@{
+    ViewData["Title"] = "RemoveCompany";
+    Layout = "~/Views/Shared/_ManagerLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="alert alert-warning">
+                            <b><i class="fa fa-warning"></i> Uyarı: </b> Firma hesabını kapatmanız ile birlikte tüm kullanıcıların hesabı sonlandırılacaktır. Bu işlemden sonra tekrar aramıza katılmak isterseniz "İletişim" formundan bizlere ulaşabilirsiniz.
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <form asp-action="RemoveCompany">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <div class="form-group">
+                                <label asp-for="DeactivationReason" class="control-label"></label>
+                                <textarea asp-for="DeactivationReason" class="form-control" rows="4"></textarea>
+                                <span asp-validation-for="DeactivationReason" class="text-danger"></span>
+                            </div>
+                            <div class="form-group text-center">
+                                <a class="btn btn-raised-success" asp-controller="ManagerDashboard" asp-action="Index" asp-area="Manager"><i class="fa fa-arrow-left"></i> Geri Dön</a>
+                                <button class="btn btn-raised-danger" type="submit"><i class="fa fa-trash"></i> Firma Hesabımı Sil</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

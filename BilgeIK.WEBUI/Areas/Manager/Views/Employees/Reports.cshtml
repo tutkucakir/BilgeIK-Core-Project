@@ -1,0 +1,71 @@
+﻿@model PagedList.Core.IPagedList<ReportJoinUserVM>
+@{
+    ViewData["Title"] = "Rapor Yönetimi";
+    Layout = "~/Views/Shared/_ManagerLayout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <h2 class="doc-section-title">Rapor Yönetimi</h2>
+            <div class="card-body">
+                <table class="table table-sm table-hover">
+                    <thead>
+                        <tr>
+                            <th>Adı Soyadı</th>
+                            <th>Rapor Başlama Tarihi</th>
+                            <th>Rapor Bitiş Tarihi</th>
+                            <th>Rapor Türü</th>
+                            <th class="text-center">Durumu</th>
+                            <th class="text-center">İşlemler</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (ReportJoinUserVM item in Model)
+                        {
+                            <tr>
+                                <td>@item.AppUser.FirstName @item.AppUser.LastName</td>
+                                <td>@item.Report.FromDate.ToShortDateString()</td>
+                                <td>@item.Report.ToDate.ToShortDateString()</td>
+                                <td>@item.Definition.Name</td>
+                                <td class="text-center">
+                                    @switch (item.Report.Status.ToString())
+                                    {
+                                        case "Pending":
+                                            <span class="text-muted">Onay Bekliyor</span>
+                                            break;
+                                        case "Actived":
+                                            <span class="text-success">Aktif</span>
+                                            break;
+                                        case "DeActived":
+                                            <span>Pasif</span>
+                                            break;
+                                        case "Deleted":
+                                            <span class="text-danger">Silindi</span>
+                                            break;
+                                        default:
+                                            <span>---</span>
+                                            break;
+                                    }
+                                </td>
+                                <td class="text-center text-nowrap">
+                                    <a asp-action="DetailsEmployeeReport" asp-route-id="@item.Report.Id" class="btn btn-sm btn-raised btn-raised-info"><i class="fa fa-list"></i></a>
+                                    <a asp-action="EditEmployeeReport" asp-route-id="@item.Report.Id" class="btn btn-sm btn-raised btn-raised-primary"><i class="fa fa-edit"></i></a>
+                                    <a asp-action="RemoveEmployeeReport" asp-route-id="@item.Report.Id" class="btn btn-sm btn-raised btn-raised-danger"><i class="fa fa-trash"></i></a>
+                                </td>
+                            </tr>
+                        }
+                        @if (Model.Count() == 0)
+                        {
+                            <tr>
+                                <td colspan="6" class="text-center">Rapor Bulunamadı.</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <pager class="pager-container" list="@Model" asp-controller="Employees" asp-action="Reports" options="@SitePagedListRenderOptions.Boostrap4CustomizedText" />
+            </div>
+        </div>
+    </div>
+</div>

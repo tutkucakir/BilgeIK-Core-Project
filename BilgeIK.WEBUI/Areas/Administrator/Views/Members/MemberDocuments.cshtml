@@ -1,0 +1,249 @@
+﻿@model Tuple<UserVM, IList<string>, string, List<UserDocument>>
+
+@{
+    ViewData["Title"] = "Kullanıcı Dosyaları";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-3 col-md-12">
+        <div class="card mb-md">
+            <div class="card-body">
+                <div class="d-flex align-items-center justify-content-center mb-lg">
+                    <span> </span>
+                    <div class="text-center">
+                        @if (Model.Item1.Photo == null)
+                        {
+                            <img class="avatar-xl rounded-circle" src="~/uploads/noavatar.gif">
+                        }
+                        else
+                        {
+                            <img class="avatar-xl rounded-circle" src="~/uploads/@Model.Item1.Photo">
+                        }
+
+                        <div class="card-title my-md font-weight-bold">@Model.Item1.FirstName @Model.Item1.LastName</div>
+                        <div>
+                            @Model.Item3 /
+                            @foreach (string item in Model.Item2)
+                            {
+                                <span>@item</span>
+                            }
+                        </div>
+                    </div>
+                </div>
+                <hr />
+
+                <div>
+                    <dl class="row">
+                        <dt class="col-sm-12">
+                            @Html.DisplayNameFor(model => model.Item1.JobTitle)
+                        </dt>
+                        <dd class="col-sm-12">
+                            @Html.DisplayFor(model => model.Item1.JobTitle)
+                        </dd>
+                        <dt class="col-sm-12">
+                            @Html.DisplayNameFor(model => model.Item1.NationalIDCardNumber)
+                        </dt>
+                        <dd class="col-sm-12">
+                            @Html.DisplayFor(model => model.Item1.NationalIDCardNumber)
+                        </dd>
+                        <dt class="col-sm-12">
+                            @Html.DisplayNameFor(model => model.Item1.BirthDate)
+                        </dt>
+                        <dd class="col-sm-12">
+                            @Html.DisplayFor(model => model.Item1.BirthDate)
+                        </dd>
+                        <dt class="col-sm-12">
+                            @Html.DisplayNameFor(model => model.Item1.FirstName)
+                        </dt>
+                        <dd class="col-sm-12">
+                            @Html.DisplayFor(model => model.Item1.FirstName)
+                        </dd>
+                        <dt class="col-sm-12">
+                            @Html.DisplayNameFor(model => model.Item1.LastName)
+                        </dt>
+                        <dd class="col-sm-12">
+                            @Html.DisplayFor(model => model.Item1.LastName)
+                        </dd>
+                        <dt class="col-sm-12">
+                            @Html.DisplayNameFor(model => model.Item1.Adress)
+                        </dt>
+                        <dd class="col-sm-12">
+                            @Html.DisplayFor(model => model.Item1.Adress)
+                        </dd>
+                        <dt class="col-sm-12">
+                            @Html.DisplayNameFor(model => model.Item1.Gender)
+                        </dt>
+                        <dd class="col-sm-12">
+                            @Html.DisplayFor(model => model.Item1.Gender)
+                        </dd>
+                        <dt class="col-sm-12">
+                            @Html.DisplayNameFor(model => model.Item1.Status)
+                        </dt>
+                        <dd class="col-sm-12">
+                            @Html.DisplayFor(model => model.Item1.Status)
+                        </dd>
+                        <dt class="col-sm-12">
+                            @Html.DisplayNameFor(model => model.Item1.LockoutEnd)
+                        </dt>
+                        <dd class="col-sm-12">
+                            @if (Model.Item1.LockoutEnd != null)
+                            {
+                                <span>@Model.Item1.LockoutEnd</span>
+                            }
+                            else
+                            {
+                                <span>Hesap Şuan Aktif</span>
+                            }
+                        </dd>
+                        <dt class="col-sm-12">
+                            @Html.DisplayNameFor(model => model.Item1.PhoneNumber)
+                        </dt>
+                        <dd class="col-sm-12">
+                            @Html.DisplayFor(model => model.Item1.PhoneNumber)
+                        </dd>
+                        <dt class="col-sm-12">
+                            @Html.DisplayNameFor(model => model.Item1.EmailConfirmed)
+                        </dt>
+                        <dd class="col-sm-12">
+                            @Html.DisplayFor(model => model.Item1.EmailConfirmed)
+                        </dd>
+                        <dt class="col-sm-12">
+                            @Html.DisplayNameFor(model => model.Item1.Email)
+                        </dt>
+                        <dd class="col-sm-12">
+                            @Html.DisplayFor(model => model.Item1.Email)
+                        </dd>
+                        <dt class="col-sm-12">
+                            @Html.DisplayNameFor(model => model.Item1.UserName)
+                        </dt>
+                        <dd class="col-sm-12">
+                            @Html.DisplayFor(model => model.Item1.UserName)
+                        </dd>
+
+                        <dt class="col-sm-12">
+                            @Html.DisplayNameFor(model => model.Item1.LockoutEnabled)
+                        </dt>
+                        <dd class="col-sm-12">
+                            @Html.DisplayFor(model => model.Item1.LockoutEnabled)
+                        </dd>
+                        <dt class="col-sm-12">
+                            @Html.DisplayNameFor(model => model.Item1.AccessFailedCount)
+                        </dt>
+                        <dd class="col-sm-12">
+                            @Html.DisplayFor(model => model.Item1.AccessFailedCount)
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-9 col-md-12">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card mb-lg">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card-title">Özlük Belgeleri</div>
+                            </div>
+                            <div class="col-md-12 text-center">
+                                <button class="btn btn-sm btn-raised btn-primary" data-toggle="modal" data-target="#uploaderModal"><i class="fa fa-upload"></i> Dosya Ekle</button>
+                            </div>
+                            <div class="col-md-12">
+                                <table class="table table-sm table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Dosya Adı</th>
+                                            <th>Eklenme Tarihi</th>
+                                            <th>Erişim</th>
+                                            <th class="text-center">Durumu</th>
+                                            <th class="text-center">Yetkileriniz</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (UserDocument item in Model.Item4)
+                                        {
+                                        <tr>
+                                            <td>@item.Name</td>
+                                            <td>@item.CreatedDate</td>
+                                            <td><a href="~/uploads/@item.FileUrl" download>İndir</a></td>
+                                            <td class="text-center">
+
+                                                @switch (item.Status.ToString())
+                                                {
+                                                    case "Pending":
+                                                        <span class="text-muted">Onay Bekliyor</span>
+                                                        break;
+                                                    case "Actived":
+                                                        <span class="text-success">Aktif</span>
+                                                        break;
+                                                    case "DeActived":
+                                                        <span>Pasif</span>
+                                                        break;
+                                                    case "Deleted":
+                                                        <span class="text-danger">Silindi</span>
+                                                        break;
+                                                    default:
+                                                        <span>---</span>
+                                                        break;
+                                                }
+                                            </td>
+                                            <td class="text-center text-nowrap">
+                                                <a asp-action="EditMemberDocument" asp-route-id="@item.Id" class="btn btn-sm btn-raised btn-raised-primary"><i class="fa fa-edit"></i></a>
+                                                <a asp-action="RemoveMemberDocument" asp-route-id="@item.Id" class="btn btn-sm btn-raised btn-raised-danger"><i class="fa fa-trash"></i></a>
+                                            </td>
+                                        </tr>
+                                        }
+                                        @if (Model.Item4.Count() == 0)
+                                        {
+                                            <tr>
+                                                <td colspan="4" class="text-center">PERSONEL İÇİN YÜKLÜ DOSYA BULUNAMADI.</td>
+                                            </tr>
+                                        }
+                                    </tbody>                                    
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="uploaderModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Kullanıcı için Dosya Yükleyeceksiniz...</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form method="post" asp-action="MemberDocumentSender" method="post" enctype="multipart/form-data">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="form-label">Dosya Adı</label>
+                                <input type="text" class="form-control" name="Name" placeholder="Dosya Adı giriniz..." required />
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="form-label">Dosya</label>
+                                <input type="file" class="form-control" name="files" accept=".pdf, .doc, .docx, .txt, .xls, .xlsx" required />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-raised btn-secondary mr-4" data-dismiss="modal">İptal</button>
+                    <input type="hidden" name="UserId" asp-for="@Model.Item1.Id" />
+                    <button type="submit" class="btn btn-raised btn-primary">Gönder</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

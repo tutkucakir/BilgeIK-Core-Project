@@ -1,0 +1,16 @@
+.page-wrap {
+  display: flex;
+  align-items: center;
+  padding: 40px 1rem;
+  height: 100%;
+  min-height: 100vh; }
+
+.session-form-hold {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto; }
+
+.session-form-hold .signup {
+  width: 60px; }
+
+/*# sourceMappingURL=session.v1.css.map */

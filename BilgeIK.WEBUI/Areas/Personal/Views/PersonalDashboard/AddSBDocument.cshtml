@@ -1,0 +1,42 @@
+﻿@model BilgeIK.WEBUI.ViewModels.SBDocumentVM
+
+@{
+    ViewData["Title"] = "Ek Ödeme için Dosya Yükleme";
+    Layout = "~/Views/Shared/_PersonalLayout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <div class="card">
+            <div class="card-body">
+                <form asp-action="AddSBDocument" enctype="multipart/form-data" method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="File" class="control-label"></label>
+                        <input name="File" type="file" accept=".pdf, .doc, .docx, .txt, .xls, .xlsx, .png, .jpg" class="form-control" required />
+                        <span asp-validation-for="File" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Description" class="control-label"></label>
+                        <input asp-for="Description" class="form-control" />
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="hidden" asp-for="SalaryBonusId" class="form-control" />
+                    </div>
+                    <div class="form-group text-center">
+                        <a class="btn btn-raised-danger" asp-action="DetailsSalaryBonus" asp-route-id="@Model.SalaryBonusId"><i class="fa fa-arrow-left"></i> Geri Dön</a>
+                        <input type="submit" value="Dosya Yükle" class="btn btn-raised-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

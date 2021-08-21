@@ -1,0 +1,58 @@
+﻿@model BilgeIK.MODEL.Entities.Order
+
+@{
+    ViewData["Title"] = "Sipariş Detayları";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Sipariş Detayı</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Sipariş No
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.OrderNo)
+        </dd>
+        <dt class="col-sm-2">
+            Sipariş Tarihi
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.OrderDate)
+        </dd>
+        <dt class="col-sm-2">
+            Sipariş Tutarı
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TotalPrice) TL
+        </dd>
+        <dt class="col-sm-2">
+            Paket
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CompanyPackage.Name)
+        </dd>
+        <dt class="col-sm-2">
+            Firma
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Company.CompanyName)
+        </dd>
+        <dt class="col-sm-2">
+            Sipairiş Durumu
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+    </dl>
+</div>
+<div class="alert alert-warning">
+    <strong><i class="fa fa-info-circle"></i> Bilgi: </strong> İşlem onayı ve süre uzatma işlemlerinin entegreli olarak gerçekleşmesi için bu sayfadaki onay butonundan siparişi onaylayınız. Düzenleme alanından onay işlemi gerçekleştirmeyiniz.
+</div>
+<div>
+    <a asp-action="ApproveOrder" asp-route-id="@Model.Id" class="btn btn-sm btn-raised btn-raised-success"><i class="fa fa-check"></i> Onay</a>
+    <a asp-action="EditOrder" asp-route-id="@Model.Id" class="btn btn-sm btn-raised btn-raised-primary"><i class="fa fa-edit"></i> Düzenle</a>
+    <a asp-action="RemoveOrder" asp-route-id="@Model.Id" class="btn btn-sm btn-raised btn-raised-danger"><i class="fa fa-trash"></i> Sil</a>
+</div>

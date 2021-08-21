@@ -1,0 +1,21 @@
+.signup4-wrap {
+  background: url(../../../images/waterfall.jpg);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  place-content: center;
+  background-repeat: no-repeat;
+  background-size: cover; }
+
+.signup4-header img {
+  width: 200px; }
+
+.signup4-container img {
+  max-height: 300px;
+  max-width: 100%; }
+
+@media only screen and (min-width: 1024px) {
+  .signup4-container {
+    max-width: 800px; } }
+
+/*# sourceMappingURL=session.v4.css.map */

@@ -1,0 +1,38 @@
+﻿@model BilgeIK.WEBUI.ViewModels.UserDocVM
+
+@{
+    ViewData["Title"] = "Özlük Dosyası Yükle";
+    Layout = "~/Views/Shared/_PersonalLayout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <div class="card">
+            <h2 class="doc-section-title">Özlük Dosyası Yükleme Formu</h2>
+            <div class="card-body">
+                <form asp-action="AddDocument" method="post" enctype="multipart/form-data">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Name" class="control-label"></label>
+                        <input asp-for="Name" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="FileUrl" class="control-label"></label>
+                        <input name="Files" type="file" accept=".pdf, .doc, .docx, .txt, .xls, .xlsx" class="form-control" required />
+                    </div>
+
+                    <div class="form-group">
+                        <input type="submit" value="Yükle" class="btn btn-raised btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

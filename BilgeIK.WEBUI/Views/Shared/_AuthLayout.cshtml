@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>@ViewBag.Title - BilgeIK</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400|Roboto:300,400,500,700,900|Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="~/assets/css/pages/session/session.v2.min.css">
+    <link rel="stylesheet" href="~/assets/css/main.bundle.min.css">
+    @await RenderSectionAsync("HeaderScripts", required: false)
+</head>
+
+<body>
+    <div class="sign2">
+        <div class="section-left">
+            <a class="btn btn-raised btn-primary" asp-area="" asp-controller="Home" asp-action="Index">Portal'a Dön!</a>
+        </div>
+        @RenderBody()
+    </div>
+    <script src="~/assets/js/vendors.bundle.min.js"></script>
+    <script src="~/assets/js/main.bundle.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
+
+
+
+
+
+
+
+

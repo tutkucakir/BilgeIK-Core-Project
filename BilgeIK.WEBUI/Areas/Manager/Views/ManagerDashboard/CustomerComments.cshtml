@@ -1,0 +1,93 @@
+﻿@model IEnumerable<BilgeIK.MODEL.Entities.CustomerComment>
+
+@{
+    ViewData["Title"] = "CustomerComments";
+    Layout = "~/Views/Shared/_ManagerLayout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-block">
+                <div class="row">
+                    <div class="col-md-12" style="border-bottom:1px solid #ccc;">
+                        <div class="d-flex justify-content-between">
+                            <div class="card-title">Kullanıcı Yorumları</div>
+                            <div class="dropdown">
+                                <button class="btn btn-primary btn-sm" id="dropdownMenuButton" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="material-icons m-0">more_horiz</i></button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" asp-action="CreateComment"><i class="fa fa-plus"></i>&emsp;Yorum Ekle</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <table class="table table-sm table-hover mt-4">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Comment)
+                                    </th>
+                                    <th class="text-center">
+                                        Gönderi Tarihi
+                                    </th>
+                                    <th class="text-center">Durum</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Comment)
+                                        </td>
+                                        <td class="text-center">
+                                            @Html.DisplayFor(modelItem => item.CreatedDate)
+                                        </td>
+                                        <td class="text-center">
+                                            @switch (item.Status.ToString())
+                                            {
+                                                case "Pending":
+                                                    <span class="text-muted">Onay Bekliyor</span>
+                                                    break;
+                                                case "Actived":
+                                                    <span class="text-success">Aktif</span>
+                                                    break;
+                                                case "DeActived":
+                                                    <span>Pasif</span>
+                                                    break;
+                                                case "Deleted":
+                                                    <span class="text-danger">Silindi</span>
+                                                    break;
+                                                default:
+                                                    <span>---</span>
+                                                    break;
+                                            }
+                                        </td>
+                                        <td class="text-center">
+                                            <a class="btn btn-sm btn-raised-primary" asp-action="EditComment" asp-route-id="@item.Id"><i class="fa fa-edit"></i> </a>
+                                            <a class="btn btn-sm btn-raised-danger" asp-action="RemoveComment" asp-route-id="@item.Id" onclick="return confirmDel()"><i class="fa fa-trash"></i> </a>
+                                        </td>
+                                    </tr>
+                                }
+                                @if (Model.Count() == 0)
+                                {
+                                    <tr>
+                                        <td class="text-center font-weight-bold" colspan="4">YORUMUNUZ BULUNMAMAKTADIR.</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+
+</div>

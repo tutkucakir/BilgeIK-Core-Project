@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,300,400,500,700,900" rel="stylesheet">
+    <title>@ViewData["Title"] - BilgeIK</title>
+
+    <link rel="stylesheet" type="text/css" href="~/assets3/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="~/assets3/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="~/assets3/css/fullpage.min.css">
+    <link rel="stylesheet" type="text/css" href="~/assets3/css/owl.carousel.css">
+    <link rel="stylesheet" href="~/assets3/css/animate.css">
+    <link rel="stylesheet" href="~/assets3/css/templatemo-style.css">
+    <link rel="stylesheet" href="~/assets3/css/responsive.css">
+    @await RenderSectionAsync("HeaderScripts", required: false)
+</head>
+<body>
+
+    @RenderBody()
+
+    <script src="~/assets3/js/jquery.js"></script>
+    <script src="~/assets3/js/bootstrap.min.js"></script>
+    <script src="~/assets3/js/fullpage.min.js"></script>
+    <script src="~/assets3/js/scrolloverflow.js"></script>
+    <script src="~/assets3/js/owl.carousel.min.js"></script>
+    <script src="~/assets3/js/jquery.inview.min.js"></script>
+    <script src="~/assets3/js/form.js"></script>
+    <script src="~/assets3/js/custom.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

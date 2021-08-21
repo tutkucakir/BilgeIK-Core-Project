@@ -1,0 +1,188 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>@ViewBag.Title - Bilge IK</title>
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" />
+    <link rel="stylesheet" href="~/assets/css/vendors.bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/github.min.css" />
+    <link rel="stylesheet" href="~/assets/css/main.bundle.min.css" />
+    <link href="~/assets/vendors/sweetalert2/dist/sweetalert2.css" rel="stylesheet" />
+    @await RenderSectionAsync("HeaderScripts", required: false)
+</head>
+<body>
+    <div class="app-admin-wrap-layout-1 sidebar-full sidebar-theme-slate">
+        <div class="sidebar-panel">
+            <div class="sidebar-compact-switch">
+                <span></span>
+                <div></div><span></span>
+            </div>
+            <div class="brand">
+                <a asp-area="" asp-controller="Home" asp-action="Index">
+                    <img src="~/assets3/images/bilgeIK_logo2.png" height="50" />
+                </a>
+            </div>
+            <div class="scroll-nav" data-perfect-scrollbar="" data-suppress-scroll-x="true">
+                @await Component.InvokeAsync("UserComponent1")
+                <!-- End:: user-->
+                <!-- Start:: side-nav-->
+                <div class="side-nav">
+                    <div class="main-menu">
+                        <nav class="sidebar-nav">
+                            <ul class="metismenu show-on-load" id="ul-menu">
+                                <li><a asp-controller="Dashboard" asp-area="Administrator" asp-action="Definitions"><i class="fa fa-circle nav-icon text-16"></i>Tanımlamalar</a></li>
+                                <li><a asp-controller="Dashboard" asp-area="Administrator" asp-action="Companies"><i class="fa fa-building nav-icon text-16"></i>Firmalar</a></li>
+                                <li><a asp-controller="Dashboard" asp-area="Administrator" asp-action="Packages"><i class="fa fa-folder nav-icon text-16"></i>Firma Üyelik Paketleri</a></li>
+                                <li><a asp-controller="Dashboard" asp-area="Administrator" asp-action="Orders"><i class="fa fa-shopping-cart nav-icon text-16"></i>Siparişler</a></li>
+                                <li><a asp-controller="Dashboard" asp-area="Administrator" asp-action="BankAccounts"><i class="fa fa-university nav-icon text-16"></i>Banka Hesapları</a></li>
+                                <li><a asp-controller="Members" asp-area="Administrator" asp-action="MemberList"><i class="fa fa-users nav-icon text-16"></i>Üyeler</a></li>
+                                <li><a asp-controller="Members" asp-area="Administrator" asp-action="CustomerComments"><i class="fa fa-comment nav-icon text-16"></i>Kullanıcı Yorumları</a></li>
+                                <li><a asp-controller="Dashboard" asp-area="Administrator" asp-action="ContactForm"><i class="fa fa-list nav-icon text-16"></i>İletişim Başvuruları</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main-content-wrap">
+            <!-- Start::Mobile header-->
+            <div class="ul-mobile-top-header bg-slate">
+                <img class="ul-brand-mobile" src="~/assets/images/arctic-admin-circle.svg" alt="" />
+                <div class="flex-grow-1">
+
+                </div>
+                <button class="sidebar-full-toggle btn btn-icon btn-primary rounded-circle text-white"><i class="material-icons">menu</i></button>
+                <button class="btn btn-icon ul-header-menu-toggle btn-icon btn-primary rounded-circle text-white"><i class="material-icons">more_vert</i></button><i class="material-icons text-white ul-mobile-header-toggle">more_horiz</i>
+            </div>
+            <!-- End::Mobile header  -->
+            <!-- Start::Main header  -->
+            <header class="main-header bg-card d-flex flex-row justify-content-between align-items-center px-lg">
+                <!-- Start::Header menu-->
+                <div>
+                    <div class="ul-header-menu-wrap">
+                        <i class="material-icons ul-header-menu-toggle">close</i>
+                        <div class="ul-header-menu">
+                            <ul class="ul-header-nav">
+                                <li class="ul-menu-item ul-menu-item--active"><a class="ul-menu-link" asp-controller="Dashboard" asp-action="Index">Pano Anasayfa</a></li>
+                                <li class="ul-menu-item ul-menu-item"><a class="ul-menu-link" asp-controller="Home" asp-action="Index" asp-area="">Portal Anasayfa</a></li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- End::Header menu-->
+                <div class="ul-header-topbar">
+                    <div class="flex-grow-1"></div>
+
+                    <div class="dropdown profile-dropdown ml-xs">
+                        <div class="header-btn-group">
+                            @await Component.InvokeAsync("UserComponent2")
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <!-- End::Main header-->
+            <!-- Start:: content body-->
+            <div class="main-content-body">
+                <!-- Start:: content (Your custom content)-->
+                <div class="subheader px-lg">
+                    <div class="subheader-container">
+                        <div class="subheader-main">
+                            <h3 class="subheader-title">BilgeIK</h3>
+                            <breadcrumb></breadcrumb>
+                        </div>
+                    </div>
+                </div>
+                <div class="mx-lg"></div>
+                <!-- Start:: content (Your custom content)-->
+                <!-- Start:: Footer-->
+
+                <div class="flex-grow-1">
+                    <div class="container my-lg">
+                        @RenderBody()
+                    </div>
+
+                </div>
+                <div class="bg-card px-lg py-md d-flex justify-content-between align-items-center flex-wrap shadow-6dp">
+                    <p class="text-muted m-0">Her Hakkı Saklıdır &copy; BilgeIK 2021</p>
+                </div>
+                <!-- End:: Footer-->
+            </div>
+            <!-- End:: content body-->
+        </div>
+        <div class="narrow-sidebar">
+            <span class="m-auto"> </span>
+            <button class="btn btn-raised btn-raised-primary rounded-circle btn-sm btn-icon mr-0 my-12 sidebar-customizer-settings open" data-toggle="tooltip" data-placement="left" title="Theme Settings"><i class="material-icons">settings</i></button>
+            <div class="ul-customizer bg-white">
+                <div class="ul-customizer-header d-flex justify-content-between align-items-center">
+                    <div class="d-flex align-items-center">
+                        <span class="material-icons mr-2 text-primary">
+                            settings
+                        </span>
+                        <h6 class="m-0">Theme Settings</h6>
+                    </div>
+                    <button class="btn rounded-circle btn-sm btn-icon m-0 customizer-close"><i class="material-icons">close</i></button>
+                </div>
+                <div class="ul-customizer-body p-md">
+                    <div class="mt-0 mb-lg">
+                        <p class="text-gray-700 font-weight-normal">Sidebar Theme</p>
+                        <div class="colors" id="colors">
+                            <div class="color" id="color1" data-sidebar-color="sidebar-theme-white">
+                                <div class="sub-color light"></div>
+                            </div>
+                            <div class="color bg-slate" id="color2" data-sidebar-color="sidebar-theme-slate">
+                                <div class="sub-color dark"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><span class="m-auto"></span>
+        </div>
+    </div>
+    <!--begin::sidebar-panel-notification-->
+
+
+    <div class="ul-sidebar-panel-overlay"></div>
+    <script src="~/assets/js/vendors.bundle.min.js"></script>
+    <script src="~/assets/js/main.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
+    <script src="~/assets/js/pages/doc.script.min.js"></script>
+    <script src="~/assets/vendors/sweetalert2/dist/sweetalert2.js"></script>
+    @if (TempData["returnMessage"] != null)
+    {
+
+        <script>
+            function results(title, description) {
+                Swal.fire({
+                    icon: title,
+                    title: description,
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            }
+        </script>
+
+        if (TempData["returnMessage"].ToString() == "success")
+        {
+            <script>
+                results("success", "İşleminiz başarıyla gerçekleştirilmiştir.");
+            </script>
+
+        }
+        if (TempData["returnMessage"].ToString() == "error")
+        {
+            <script>
+                results("error", "İşleminiz esnasında hata ile karşılaşıldı.");
+            </script>
+        }
+
+    }
+    @await RenderSectionAsync("Scripts", required: false)
+
+</body>
+
+</html>

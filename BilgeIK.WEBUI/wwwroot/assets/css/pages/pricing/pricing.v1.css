@@ -1,0 +1,55 @@
+@charset "UTF-8";
+/*
+  Color Inventory
+*/
+/* 
+  Color Design Tokens 
+*/
+/*
+$opacity-map: (
+  blue: (
+    100: #f31312,
+    .....,
+    900: #f32332
+  ),
+  red: (
+    100: #f31312,
+    .....,
+    900: #f32332
+  )
+)
+*/
+.ul-pricing-v1 {
+  margin: 2rem 0;
+  padding: 0 2rem; }
+  .ul-pricing-v1 .ul-pricing-v1-img {
+    max-width: 150px;
+    height: 100px; }
+  .ul-pricing-v1 .ul-pricing-v1-li {
+    flex-wrap: wrap; }
+  .ul-pricing-v1 .ul-pricing-v1-li li::after {
+    content: "•";
+    align-self: center;
+    margin-left: 10px;
+    color: #E7EDF3;
+    vertical-align: middle; }
+  .ul-pricing-v1 .ul-pricing-v1-li li:last-child::after {
+    display: none; }
+  .ul-pricing-v1 .ul-pricing-v1-desc {
+    padding: 0 3rem;
+    max-width: 500px;
+    margin: 0 auto; }
+
+@media only screen and (max-width: 1200px) {
+  .ul-pricing-v1 {
+    border-right: none;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #E7EDF3; }
+    .ul-pricing-v1--last {
+      border-bottom: none; } }
+
+@media only screen and (min-width: 1200px) and (max-width: 1450px) {
+  .ul-pricing-v1 .ul-pricing-v1-desc {
+    padding: 0; } }
+
+/*# sourceMappingURL=pricing.v1.css.map */

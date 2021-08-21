@@ -1,0 +1,88 @@
+﻿@model PagedList.Core.IPagedList<UserListVM>
+
+@{
+    ViewData["Title"] = "Personel-Üye Listesi";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="d-flex justify-content-between">
+                            <div class="card-title">Üye Yönetimi</div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <table class="table table-sm table-hover table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>E-Posta</th>
+                                    <th>Kullanıcı Adı</th>
+                                    <th>Firma Adı</th>
+                                    <th>Durumu</th>
+                                    <th>Roller</th>
+                                    <th class="text-center">İşlemler</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.UserEmail)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.UserName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.CompanyName)
+                                        </td>
+                                        <td>
+                                            @switch (item.Status.ToString())
+                                            {
+                                                case "Pending":
+                                                    <span>Onay Bekliyor</span>
+                                                    break;
+                                                case "Actived":
+                                                    <span>Aktif</span>
+                                                    break;
+                                                case "DeActived":
+                                                    <span>Pasif</span>
+                                                    break;
+                                                case "Deleted":
+                                                    <span>Silindi</span>
+                                                    break;
+                                                default:
+                                                    <span>---</span>
+                                                    break;
+                                            }
+                                        </td>
+                                        <td>
+                                            @foreach (string yetkim in @item.Roles)
+                                            {
+                                                <span class="mr-2">@yetkim</span>
+                                            }
+                                        </td>
+                                        <td class="text-center text-nowrap">
+                                            <a asp-action="DetailsMember" asp-route-id="@item.Id" class="btn btn-sm btn-raised btn-raised-info"><i class="fa fa-list"></i></a>
+                                            <a asp-action="EditMember" asp-route-id="@item.Id" class="btn btn-sm btn-raised btn-raised-primary"><i class="fa fa-edit"></i></a>
+                                            <a asp-action="RemoveMember" asp-route-id="@item.Id" class="btn btn-sm btn-raised btn-raised-danger"><i class="fa fa-trash"></i></a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <pager class="pager-container" list="@Model" asp-controller="Members" asp-action="MemberList" options="@SitePagedListRenderOptions.Boostrap4CustomizedText" />
+            </div>
+        </div>
+    </div>
+</div>

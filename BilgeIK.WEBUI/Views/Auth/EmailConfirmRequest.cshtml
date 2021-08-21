@@ -1,0 +1,40 @@
+﻿@model BilgeIK.WEBUI.ViewModels.EmailConfirmVM
+
+@{
+    ViewData["Title"] = "E-Posta Doğrulama Talebi";
+    Layout = "~/Views/Shared/_AuthLayout.cshtml";
+}
+
+
+<div class="form-holder signin-2 px-xxl">
+    <div class="d-flex flex-column align-items-center mt-lg mb-xxl">
+        <img src="~/assets3/images/bilgeIK_logo.png" style="width:300px;">
+        <span class="mb-md mt-lg mb-lg d-block">Hesabınız için Doğrulama E-Postası almak için Formu doldurun!</span>
+    </div>
+    <form asp-action="EmailConfirmRequest">
+        <div class="row">
+            <div class="col-md-12"><div asp-validation-summary="ModelOnly" class="text-danger"></div></div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label asp-for="Email" class="control-label"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <input type="submit" value="Gönder" class="btn btn-raised btn-raised-primary btn-block" />
+                </div>
+            </div>
+            <div class="col-md-12 text-center">
+                <p>Oturum Açma sayfasına <a asp-action="LogIn">geri dön.</a></p>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

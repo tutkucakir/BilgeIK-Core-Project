@@ -1,0 +1,52 @@
+﻿ @model BilgeIK.MODEL.Entities.Contact
+
+@{
+    ViewData["Title"] = "İletişim Düzenleme Formu";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <div class="card">
+            <div class="card-body">
+                <form asp-action="EditContact">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Name" class="control-label"></label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Mail" class="control-label"></label>
+                        <input asp-for="Mail" class="form-control" />
+                        <span asp-validation-for="Mail" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Message" class="control-label"></label>
+                        <textarea asp-for="Message" class="form-control" rows="4"></textarea>
+                        <span asp-validation-for="Message" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="PostedDate" class="control-label"></label>
+                        <input asp-for="PostedDate" class="form-control" />
+                        <span asp-validation-for="PostedDate" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Status" class="control-label">Durumu</label>
+                        <select asp-for="@Model.Status" class="form-control js-example-basic-single" asp-items="Html.GetEnumSelectList<BilgeIK.CORE.Entity.Enums.Status>()"></select>
+                    </div>
+                    <div class="form-group text-center">
+                        <input type="hidden" asp-for="Id" class="form-control" />
+                        <button class="btn btn-raised btn-success"><i class="fa fa-save"></i> Güncelle</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

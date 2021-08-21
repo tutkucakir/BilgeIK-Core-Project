@@ -1,0 +1,80 @@
+﻿@model BilgeIK.WEBUI.ViewModels.CompanyVM
+
+@{
+    ViewData["Title"] = "Firma Düzenleme Formu";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <h2 class="doc-section-title">Firmayı Düzenliyorsunuz...</h2>
+
+            <div class="card-body">
+                <form asp-action="EditCompany" method="post" enctype="multipart/form-data">
+                    <div class="row">
+                        <div class="col-md-12"><div asp-validation-summary="All" class="text-danger"></div></div>
+
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <label asp-for="CompanyName" class="control-label"></label>
+                                <input asp-for="CompanyName" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="CompanyPhone" class="control-label"></label>
+                                <input asp-for="CompanyPhone" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label asp-for="CompanyAdress" class="control-label"></label>
+                                <input asp-for="CompanyAdress" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label asp-for="Photo" class="control-label"></label>
+                                <input type="file" asp-for="Photo" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="RegisteredDate" class="control-label"></label>
+                                <input asp-for="RegisteredDate" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="UpdatedDate" class="control-label"></label>
+                                <input asp-for="UpdatedDate" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="ExpiresDate" class="control-label"></label>
+                                <input asp-for="ExpiresDate" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="Status" class="control-label"></label>
+                                <select asp-for="@Model.Status" class="form-control js-example-basic-single" asp-items="Html.GetEnumSelectList<BilgeIK.CORE.Entity.Enums.Status>()"></select>
+                            </div>
+                        </div>
+                        <div class="col-md-12 text-center">
+                            <div class="form-group">
+                                <input type="hidden" asp-for="Id" />
+                                <input type="submit" value="Güncelleyin" class="btn btn-raised-primary" />
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

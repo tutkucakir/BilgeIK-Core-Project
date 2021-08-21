@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewData["Title"] = "E-Posta Doğrulama";
+    Layout = "~/Views/Shared/_AuthLayout.cshtml";
+}
+
+<div class="form-holder signin-2 px-xxl">
+    <div class="d-flex flex-column align-items-center mt-lg mb-xxl">
+        <img src="~/assets3/images/bilgeIK_logo.png" style="width:300px;">
+        <span class="mb-md mt-lg mb-lg d-block">Hesabınıza Erişim için Giriş Yapınız</span>
+    </div>
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <h3>@ViewBag.status</h3>
+        </div>
+        <div class="col-md-12 text-center">
+            <a asp-action="LogIn" class="btn btn-raised btn-raised-primary btn-block">Giriş Yapın</a>
+        </div>
+    </div>
+</div>
+

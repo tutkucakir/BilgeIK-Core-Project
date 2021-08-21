@@ -1,0 +1,83 @@
+﻿@model BilgeIK.WEBUI.ViewModels.SignupVM
+
+@{
+    ViewData["Title"] = "Kayıt Ol";
+    Layout = "~/Views/Shared/_AuthLayout.cshtml";
+}
+
+<div class="form-holder signup-2 px-xxl">
+    <div class="form-headline text-center mt-md mb-xxxl">
+        <h3 class="heading">Şimdi ücretsiz deneme hesabı oluşturun</h3>
+    </div>
+    <div class="mb-xxl signin-right-image">
+        <img src="~/assets3/images/bilgeIK_logo.png" style="width:300px;">
+    </div>
+    <form class="signup-form" asp-action="SignUp" method="post">
+        <div class="row">
+            <div class="col-md-12">
+                <div asp-validation-summary="All" class="text-danger"></div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="UserName" class="control-label"></label>
+                    <input asp-for="UserName" class="form-control" />
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="Email" class="control-label"></label>
+                    <input asp-for="Email" class="form-control" />
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label asp-for="Password" class="control-label"></label>
+                    <input asp-for="Password" class="form-control" />
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="FirstName" class="control-label"></label>
+                    <input asp-for="FirstName" class="form-control" />
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="LastName" class="control-label"></label>
+                    <input asp-for="LastName" class="form-control" />
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label asp-for="CompanyName" class="control-label"></label>
+                    <input asp-for="CompanyName" class="form-control" />
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label asp-for="CompanyPhone" class="control-label"></label>
+                    <input asp-for="CompanyPhone" class="form-control" />
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label asp-for="CompanyAdress" class="control-label"></label>
+                    <input asp-for="CompanyAdress" class="form-control" />
+                </div>
+            </div>
+            <div class="col-md-12 text-center">
+                <div class="form-group">
+                    <input type="submit" value="Kullanım Şartlarını Okudum Hesabımı Oluşturun" class="btn btn-raised btn-raised-primary btn-block" />
+                </div>
+            </div>
+            <div class="col-md-12 text-center">
+                <p>Hesabınız var mı? O halde <a asp-action="LogIn">giriş yapın.</a></p>
+            </div>
+        </div>
+    </form>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

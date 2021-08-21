@@ -1,0 +1,44 @@
+﻿@model BilgeIK.WEBUI.ViewModels.DeactivateVM
+
+@{
+    ViewData["Title"] = "Hesap Kapatma";
+    Layout = "~/Views/Shared/_PersonalLayout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <div class="card">
+            <h2 class="doc-section-title">Hesabınızı Devre Dışı Bırakıyorsunuz...</h2>
+            <div class="card-body pb-0">
+                <form asp-action="DeActiveAccount">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div asp-validation-summary="All" class="text-danger"></div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label asp-for="DeactivationReason" class="control-label"></label>
+                                <input asp-for="DeactivationReason" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="alert alert-warning">
+                            <b><i class="fa fa-info-circle"></i> Bilgi:</b> hesabınızı devre dışı bıraktığınız BilgeIK'da yeniden oturum açamazsınız.
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group text-center">
+                                <button class="btn btn-danger btn-raised">Hesabı Sonlandır</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

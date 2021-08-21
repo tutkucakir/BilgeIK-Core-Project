@@ -1,0 +1,103 @@
+﻿@model LeaveVM
+
+@{
+    ViewData["Title"] = "İzin Oluşturun";
+    Layout = "~/Views/Shared/_ManagerLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+                <form asp-action="AddLeave" method="post">
+                    <div class="row">
+                        <div class="col-md-12"><div asp-validation-summary="All" class="text-danger"></div></div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label asp-for="FromDate" class="control-label"></label>
+                                <input asp-for="FromDate" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label asp-for="ToDate" class="control-label"></label>
+                                <input asp-for="ToDate" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label asp-for="PlannedDay" class="control-label"></label>
+                                <input asp-for="PlannedDay" class="form-control" readonly />
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <input asp-for="Notes" class="form-control" />
+                                <label asp-for="Notes" class="control-label"></label>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label">İzin Türü</label>
+                                <select asp-for="DefinitionId" class="form-control">
+                                    @foreach (Definition item in Model.Definition)
+                                    {
+                                        <option value="@item.Id">@item.Name</option>
+                                    }
+                                </select>
+
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label asp-for="Status" class="control-label"></label>
+                                <select asp-for="@Model.Status" class="form-control js-example-basic-single" asp-items="Html.GetEnumSelectList<BilgeIK.CORE.Entity.Enums.Status>()"></select>
+                            </div>
+                        </div>
+                        <div class="form-group text-center">
+                            <input type="hidden" asp-for="UserId" class="form-control" />
+                            <input type="submit" value="Ekle" class="btn btn-raised btn-primary" />
+                        </div>
+
+                    </div>
+                </form>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+<script>
+    $(document).ready(function () {
+        $('input[name="ToDate"]').change(function () {
+            var fromDate = $('input[name="FromDate"]').val();
+            var toDate = $('input[name="ToDate"]').val();
+            if (toDate < fromDate) {
+                alert("İzin bitiş tarihi, başlangıç tarihinden önce olmamalıdır!");
+                $('input[name="ToDate"]').val('');
+                $('input[name="PlannedDay"]').val('');
+            } else {
+                $('input[name="PlannedDay"]').val(DateCalculate(fromDate, toDate));
+            }
+
+        });
+    });
+
+    function DateCalculate(date1, date2) {
+        var firstDate = new Date(date1);
+        var secondDate = new Date(date2);
+        var Diff = Math.abs(firstDate.getTime() - secondDate.getTime());
+        var DiffSec = Math.round(Diff / 86400000) + 1; //+1 çünkü 1 günlük izin alındığında aynı gün izin başlar ve aynı gün biter.
+        //İzin dönüşü başlama tarihi Sorumlu tarafından girilir.
+        return DiffSec;
+    }
+</script>
+
+}

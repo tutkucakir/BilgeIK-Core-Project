@@ -1,0 +1,183 @@
+﻿@model List<CommentsJoinVM>
+@{
+    ViewData["Title"] = "Anasayfa";
+    Layout = "~/Views/Shared/_FrontLayout.cshtml";
+}
+
+
+<div id="video">
+    <div class="preloader">
+        <div class="preloader-bounce">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <header id="header">
+        <div class="container-fluid">
+            <div class="navbar">
+                <a asp-action="Index" id="logo" title="Bilge IK Logo">
+                    <img src="~/assets3/images/bilgeIK_logo2.png" height="60" />
+                </a>
+                <div class="navigation-row">
+                    <nav id="navigation">
+                        <button type="button" class="navbar-toggle"> <i class="fa fa-bars"></i> </button>
+                        <div class="nav-box navbar-collapse">
+                            <ul class="navigation-menu nav navbar-nav navbars" id="nav">
+                                <li data-menuanchor="slide01" class="active"><a href="#slide01">Anasayfa</a></li>
+                                <li data-menuanchor="slide02"><a href="#slide02">Hakkımızda</a></li>
+                                <li data-menuanchor="slide03"><a href="#slide03">Kullanıcı Yorumları</a></li>
+                                <li data-menuanchor="slide04"><a href="#slide04">İletişim</a></li>
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                    if (ViewBag.yetki == "Admin")
+                                    {
+                                        <li><a href="/Administrator">Yönetici Paneli</a></li>
+                                    }
+                                    else if (ViewBag.yetki == "Manager")
+                                    {
+                                        <li><a href="/Manager">Firma Paneli</a></li>
+                                    }
+                                        <li><a href="/Personal">Personel Paneli</a></li>
+                                        <li><a href="/Auth/ProfileSettings">Profil Ayarlarım</a></li>
+
+                                    <li data-menuanchor="login"><a asp-area="" asp-controller="Auth" asp-action="LogOut">Çıkış (@User.Identity.Name)</a></li>
+                                }
+                                else
+                                {
+                                    <li data-menuanchor="login"><a asp-area="" asp-controller="Auth" asp-action="LogIn">Oturum Açın</a></li>
+                                    <li data-menuanchor="signup"><a asp-area="" asp-controller="Auth" asp-action="SignUp">Kayıt Olun!</a></li>
+                                }
+
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <video autoplay muted loop id="myVideo">
+        <source src="~/assets3/images/video-bg.mp4" type="video/mp4">
+    </video>
+
+
+
+
+    <div id="fullpage" class="fullpage-default">
+
+        <div class="section animated-row" data-section="slide01">
+            <div class="section-inner">
+                <div class="welcome-box">
+                    <span class="welcome-first animate" data-animate="fadeInUp">Merhaba</span>
+                    <h1 class="welcome-title animate" data-animate="fadeInUp">BİLGE IK</h1>
+                    <p class="animate" data-animate="fadeInUp">Projesine hoş geldiniz. Projemizde Şirketinizin İnsan Kaynakları biriminde ihtiyaç duyulan her çözüm mevcuttur. Ücretsiz 3 aylık deneme sürecinden faydalanmak için siz de kayıt olun!</p>
+                    <div class="scroll-down next-section animate data-animate=" fadeInUp""><img src="~/assets3/images/mouse-scroll.png" alt=""><span>Aşağıya Kaydır</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section animated-row" data-section="slide02">
+            <div class="section-inner">
+                <div class="about-section">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8 wide-col-laptop">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="about-contentbox">
+                                        <div class="animate" data-animate="fadeInUp">
+                                            <span>Hakkımızda</span>
+                                            <h2>Biz kimiz?</h2>
+                                            <p>Kurumunuz için insan kaynakları çözümleri geliştiriyoruz. Personel İzinleri, Sağlık Raporları, Özlük Dosyaları ve özel modüller ile hizmetinizdeyiz...</p>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <figure class="about-img animate" data-animate="fadeInUp"><img src="~/assets3/images/profile-girl.jpg" class="rounded" alt=""></figure>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="section animated-row" data-section="slide03">
+            <div class="section-inner">
+                <div class="row justify-content-center">
+                    <div class="col-md-8 wide-col-laptop">
+                        <div class="title-block animate" data-animate="fadeInUp">
+                            <span>TECRÜBELER</span>
+                            <h2>Kullanıcılarımız ne dedi?</h2>
+                        </div>
+                        <div class="col-md-8 offset-md-2">
+                            <div class="testimonials-section">
+                                <div class="testimonials-slider owl-carousel">
+                                    @foreach (CommentsJoinVM item in Model)
+                                    {
+                                        <div class="item animate" data-animate="fadeInUp" style="width:100%;">
+                                            <div class="testimonial-item">
+                                                <div class="client-row">
+                                                    <img src="~/uploads/@item.AppUser.Photo" class="rounded-circle" alt="@item.AppUser.FirstName Photo">
+                                                </div>
+                                                <div class="testimonial-content">
+                                                    <h4>@item.AppUser.FirstName</h4>
+                                                    <p>"@item.CommentContent"</p>
+                                                    <span>@item.AppUser.JobTitle - @item.Company.CompanyName</span>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 text-center">
+                        <a class="btn btn-primary mt-3" asp-action="Comments"><i class="fa fa-list"></i> Diğer Kullanıcı Yorumları</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="section animated-row" data-section="slide04">
+            <div class="section-inner">
+                <div class="row justify-content-center">
+                    <div class="col-md-7 wide-col-laptop">
+                        <div class="title-block animate" data-animate="fadeInUp">
+                            <span>İletişim</span>
+                            <h2>Bizimle iletişim kurun!</h2>
+                        </div>
+                        <div class="contact-section">
+                            <div class="row">
+                                <div class="col-md-6 animate offset-md-3" data-animate="fadeInUp">
+                                    <form method="post" asp-action="Contact">
+                                        <div class="input-field">
+                                            <input type="text" class="form-control" name="name" id="name" required placeholder="Adınız ve Soyadınız">
+                                        </div>
+                                        <div class="input-field">
+                                            <input type="email" class="form-control" name="email" id="email" required placeholder="E-Posta adresiniz">
+                                        </div>
+                                        <div class="input-field">
+                                            <textarea class="form-control" name="message" id="message" required placeholder="Mesajınız"></textarea>
+                                        </div>
+                                        <button class="btn" type="submit">Gönder</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+</div>

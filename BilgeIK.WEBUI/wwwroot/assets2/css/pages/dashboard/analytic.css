@@ -1,0 +1,32 @@
+/*
+  Color Inventory
+*/
+/* 
+  Color Design Tokens 
+*/
+/*
+$opacity-map: (
+  blue: (
+    100: #f31312,
+    .....,
+    900: #f32332
+  ),
+  red: (
+    100: #f31312,
+    .....,
+    900: #f32332
+  )
+)
+*/
+.ul-card-container {
+  background: url(../../../images/dots.png), linear-gradient(90deg, #7467ef -19.83%, #8f85f2 189.85%);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  height: 300px; }
+
+button.ul-analytic-sup {
+  position: absolute;
+  right: -15px;
+  top: -17px; }
+
+/*# sourceMappingURL=analytic.css.map */

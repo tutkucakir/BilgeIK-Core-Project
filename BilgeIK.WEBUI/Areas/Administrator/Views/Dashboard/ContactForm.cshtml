@@ -1,0 +1,59 @@
+﻿@model PagedList.Core.IPagedList<BilgeIK.MODEL.Entities.Contact>
+
+@{
+    ViewData["Title"] = "İletişim Formu";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <h2 class="doc-section-title">Sitemize Gönderilen Mesajlar</h2>
+            <div class="card-body">
+                <table class="table table-sm table-hover">
+                    <thead>
+                        <tr>
+                            <th>
+                                Adı Soyadı
+                            </th>
+                            <th>
+                                E-Posta Adresi
+                            </th>
+                            <th>
+                                Gönderilme Tarihi
+                            </th>
+                            <th>
+                                Durumu
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Mail)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.PostedDate)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Status)
+                                </td>
+                                <td class="text-center">
+                                    <a asp-action="ContactDetail" asp-route-id="@item.Id" class="btn btn-info"><i class="fa fa-search"></i> Detay</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <pager class="pager-container" list="@Model" asp-controller="Dashboard" asp-action="Orders" options="@SitePagedListRenderOptions.Boostrap4CustomizedText" />
+            </div>
+        </div>
+    </div>
+</div>

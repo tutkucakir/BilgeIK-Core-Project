@@ -1,0 +1,61 @@
+/*
+  Color Inventory
+*/
+/* 
+  Color Design Tokens 
+*/
+/*
+$opacity-map: (
+  blue: (
+    100: #f31312,
+    .....,
+    900: #f32332
+  ),
+  red: (
+    100: #f31312,
+    .....,
+    900: #f32332
+  )
+)
+*/
+.ul-note-mobile-sidebar {
+  display: none; }
+  @media (max-width: 1024px) {
+    .ul-note-mobile-sidebar {
+      display: block;
+      padding-bottom: 1rem;
+      padding-left: 1rem; } }
+
+.ul-note-wrapper {
+  display: flex;
+  position: fixed;
+  height: 100%; }
+  .ul-note-wrapper .ul-note-sidebar {
+    width: 250px;
+    position: absolute;
+    height: 100vh;
+    background-color: #fff; }
+    .ul-note-wrapper .ul-note-sidebar ul.list-group {
+      height: calc(100% - 100px); }
+    @media (max-width: 1024px) {
+      .ul-note-wrapper .ul-note-sidebar {
+        position: absolute;
+        z-index: 8500;
+        left: -280px;
+        transition: all 0.2s ease-in-out; }
+        .ul-note-wrapper .ul-note-sidebar.open {
+          left: -4px; } }
+  .ul-note-wrapper .ul-note-container {
+    padding: 0 12px;
+    overflow: scroll;
+    width: 100%;
+    margin-left: 250px;
+    padding-left: 5px; }
+    @media (max-width: 1024px) {
+      .ul-note-wrapper .ul-note-container {
+        width: 100%;
+        margin-left: -8px; } }
+    .ul-note-wrapper .ul-note-container .ul-note-item.ul-note-fav .ul-note-action .ul-fav-note {
+      color: #FF8A48 !important; }
+
+/*# sourceMappingURL=notes.css.map */

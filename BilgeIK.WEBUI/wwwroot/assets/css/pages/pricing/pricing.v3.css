@@ -1,0 +1,29 @@
+/*
+  Color Inventory
+*/
+/* 
+  Color Design Tokens 
+*/
+/*
+$opacity-map: (
+  blue: (
+    100: #f31312,
+    .....,
+    900: #f32332
+  ),
+  red: (
+    100: #f31312,
+    .....,
+    900: #f32332
+  )
+)
+*/
+.ul-pricing-v3 .table-responsive table {
+  min-width: 800px; }
+
+.ul-pricing-v3 caption {
+  caption-side: top;
+  color: #304156;
+  font-weight: 600; }
+
+/*# sourceMappingURL=pricing.v3.css.map */

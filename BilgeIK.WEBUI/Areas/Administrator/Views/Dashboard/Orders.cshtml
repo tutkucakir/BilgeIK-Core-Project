@@ -1,0 +1,96 @@
+﻿@model PagedList.Core.IPagedList<BilgeIK.MODEL.Entities.Order>
+
+@{
+    ViewData["Title"] = "Siparişler";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <h2 class="doc-section-title">Siparişler</h2>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="alert alert-warning">
+                            <strong><i class="fa fa-info-circle"></i> Bilgi: </strong> İşlem onayı ve süre uzatma işlemlerinin entegreli olarak gerçekleşmesi için bu sayfadaki onay butonundan siparişi onaylayınız. Düzenleme alanından onay işlemi gerçekleştirmeyiniz.
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Sipariş No
+                                    </th>
+                                    <th>
+                                        Tarih
+                                    </th>
+                                    <th>
+                                        Toplam Ücret
+                                    </th>
+                                    <th>
+                                        Paket Adı
+                                    </th>
+
+                                    <th>
+                                        Sipariş Durumu
+                                    </th>
+                                    <th class="text-center">
+                                        İşlemler
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.OrderNo)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.OrderDate)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.TotalPrice)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.CompanyPackage.Name)
+                                        </td>
+
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Status)
+                                        </td>
+                                        <td class="text-center text-nowrap">
+                                            @if (item.Status == BilgeIK.CORE.Entity.Enums.Status.Pending)
+                                            {
+                                                <a asp-action="ApproveOrder" asp-route-id="@item.Id" class="btn btn-sm btn-raised btn-raised-success" title="Onay bekliyor..."><i class="fa fa-check"></i></a>
+                                            }
+                                            else
+                                            {
+                                                <a href="#" class="btn btn-sm btn-raised btn-raised-default" title="Onay beklemiyor..."><i class="fa fa-check"></i></a>
+                                            }
+                                            <a asp-action="DetailsOrder" asp-route-id="@item.Id" class="btn btn-sm btn-raised btn-raised-secondary"><i class="fa fa-list"></i></a>
+                                            <a asp-action="EditOrder" asp-route-id="@item.Id" class="btn btn-sm btn-raised btn-raised-primary"><i class="fa fa-edit"></i></a>
+                                            @if (item.Status != BilgeIK.CORE.Entity.Enums.Status.Deleted)
+                                            {
+                                                <a asp-action="RemoveOrder" asp-route-id="@item.Id" class="btn btn-sm btn-raised btn-raised-danger" title="Siparişi sil"><i class="fa fa-trash"></i></a>
+                                            }
+                                            else
+                                            {
+                                                <a href="#" title="Sipariş Silinmiş" class="btn btn-sm btn-raised btn-raised-default"><i class="fa fa-trash"></i></a>
+                                            }
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-md-12 text-center">
+                        <pager class="pager-container" list="@Model" asp-controller="Dashboard" asp-action="Orders" options="@SitePagedListRenderOptions.Boostrap4CustomizedText" />
+                    </div>   
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,34 @@
+﻿@model BilgeIK.WEBUI.ViewModels.UserDocVM
+
+@{
+    ViewData["Title"] = "Özlük Dosyası Düzenleme";
+    Layout = "~/Views/Shared/_PersonalLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <div class="card">
+            <h2 class="doc-section-title">Dosya Düzenleme Formu</h2>
+            <div class="card-body">
+                <form asp-action="EditDocument">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Name" class="control-label"></label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="hidden" asp-for="Id" class="form-control" />
+
+                        <input type="submit" value="Değişiklikleri Kaydet" class="btn btn-raised btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

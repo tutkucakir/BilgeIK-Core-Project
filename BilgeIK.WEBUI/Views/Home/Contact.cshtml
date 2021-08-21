@@ -1,0 +1,96 @@
+﻿
+@{
+    ViewData["Title"] = "İletişim";
+    Layout = "~/Views/Shared/_FrontLayout.cshtml";
+}
+
+
+
+<div id="video">
+    <div class="preloader">
+        <div class="preloader-bounce">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <header id="header">
+        <div class="container-fluid">
+            <div class="navbar">
+                <a asp-action="Index" id="logo" title="Bilge IK Logo">
+                    <img src="~/assets3/images/bilgeIK_logo2.png" height="60" />
+                </a>
+                <div class="navigation-row">
+                    <nav id="navigation">
+                        <button type="button" class="navbar-toggle"> <i class="fa fa-bars"></i> </button>
+                        <div class="nav-box navbar-collapse">
+                            <ul class="navigation-menu nav navbar-nav navbars" id="nav">
+                                <li data-menuanchor="slide01" class="active"><a asp-action="Index">Anasayfa</a></li>
+
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                    <li data-menuanchor="login"><a asp-area="" asp-controller="Auth" asp-action="LogOut">Çıkış (@User.Identity.Name)</a></li>
+                                }
+                                else
+                                {
+                                    <li data-menuanchor="login"><a asp-area="" asp-controller="Auth" asp-action="LogIn">Oturum Açın</a></li>
+                                    <li data-menuanchor="signup"><a asp-area="" asp-controller="Auth" asp-action="SignUp">Kayıt Olun!</a></li>
+                                }
+
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <video autoplay muted loop id="myVideo">
+        <source src="~/assets3/images/video-bg.mp4" type="video/mp4">
+    </video>
+
+
+
+
+    <div id="fullpage" class="fullpage-default">
+        <div class="section">
+            <div class="section-inner">
+                @if (ViewBag.message == "success")
+                {
+                    <div class="alert alert-success">
+                        <strong><i class="fa fa-info-circle"></i>Bilgi: </strong> Mesajınız başarıyla BilgeIK'ya gönderildi. En kısa sürede mesajını değerlendireceğiz.
+                    </div>
+
+                }
+                else if (ViewBag.message == "error")
+                {
+                    <div class="alert alert-danger">
+                        <strong><i class="fa fa-warning"></i>Bilgi: </strong> Mesajınız iletilemedi. Hata ile karşılaştık. Lütfen tekrar deneyiniz.
+                    </div>
+                }
+                <div id="uyari"></div>
+                <script>
+                    ysYonlendir("uyari", "../..", 3);
+                </script>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section HeaderScripts{ 
+
+    <script>
+        function ysYonlendir(ID, adres, saniye) {
+            if (saniye == 0) {
+                window.location.href = adres;
+                return;
+            }
+            document.getElementById(ID).innerHTML = saniye + " saniye sonra yönlendiriliyorsunuz.";
+            saniye--;
+            setTimeout(function () {
+                ysYonlendir(ID, adres, saniye);
+            }, 1000);
+        }
+    </script>
+
+}

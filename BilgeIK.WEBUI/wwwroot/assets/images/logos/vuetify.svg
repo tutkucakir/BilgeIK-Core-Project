@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="344px" height="393px" viewBox="0 0 344 393" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>Artboard</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Artboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="vuetify-logo-light-text">
+            <polygon id="Path" fill="#1697F6" points="171.723 189.485 91.488 0.0079 171.723 0.0079"></polygon>
+            <polygon id="Path" fill="#7BC6FF" points="89.949 57.1976 0 57.1976 171.723 392.158 171.723 245.107"></polygon>
+            <polyline id="Path" fill="#1867C0" points="171.723 0 171.723 189.485 251.955 0.008 171.723 0.008"></polyline>
+            <polygon id="Path" fill="#AEDDFF" points="253.487 57.1976 343.436 57.1976 171.723 392.158 171.723 245.107"></polygon>
+        </g>
+    </g>
+</svg>

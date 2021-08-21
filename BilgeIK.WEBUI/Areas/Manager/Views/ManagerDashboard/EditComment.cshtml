@@ -1,0 +1,47 @@
+﻿@model BilgeIK.MODEL.Entities.CustomerComment
+
+@{
+    ViewData["Title"] = "EditComment";
+    Layout = "~/Views/Shared/_ManagerLayout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <h2 class="doc-section-title">Kullanıcı Yorum Düzenleme Formu</h2>
+
+            <div class="card-block">
+                
+                <form asp-action="EditComment" method="post">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label asp-for="Comment" class="control-label"></label>
+                                <textarea asp-for="Comment" class="form-control" rows="5"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="alert alert-info">
+                                <strong><i class="fa fa-info-circle"></i>Bilgi: </strong> Güncellediğiniz yorum tekrar onay sürecinden sonra onaylanarak sitemizde yayınlanacaktır.
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group text-center">
+                                <button type="submit" class="btn btn-raised btn-success"><i class="fa fa-save"></i> Güncelle</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

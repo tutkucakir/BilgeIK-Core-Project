@@ -1,0 +1,14 @@
+Core 3.1 Uygulama Geliştirme
+1 - https://www.youtube.com/watch?v=U6aIkyYhy4w&feature=emb_title
+2 - https://www.youtube.com/watch?v=yDpw3yW5-YM&feature=emb_title
+3 - https://www.youtube.com/watch?v=-8ovfSXzm8o&feature=emb_title
+4 - https://www.youtube.com/watch?v=D3jReZkS8Tk&feature=emb_title
+5 - https://www.youtube.com/watch?v=AFp4Mur3Jzk&feature=emb_title
+
+Building .NET Core 3.1 Serverless Application in AWS
+1 - https://www.youtube.com/watch?v=R2rRrXxiUdU&feature=emb_title
+
+
+ASP.NET Web Api
+
+1 - https://www.youtube.com/watch?v=OqTiHGHQef4&feature=emb_title

@@ -1,0 +1,49 @@
+﻿@model PagedList.Core.IPagedList<BilgeIK.MODEL.Entities.Company>
+
+@{
+    ViewData["Title"] = "Firmalar";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <h2 class="doc-section-title">Firmalar</h2>
+            <div class="card-body">
+                <table class="table table-sm">
+                    <thead>
+                        <tr>
+                            <th>Firma Adı</th>
+                            <th>Telefon Numarası</th>
+                            <th>Kayıt Tarihi</th>
+                            <th>Güncelleme Tarihi</th>
+                            <th>Bitiş Tarihi</th>
+                            <th>Onay Durumu</th>
+                            <th class="text-center">İşlem</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => item.CompanyName)</td>
+                                <td>@Html.DisplayFor(modelItem => item.CompanyPhone)</td>
+                                <td>@Html.DisplayFor(modelItem => item.RegisteredDate)</td>
+                                <td>@Html.DisplayFor(modelItem => item.UpdatedDate)</td>
+                                <td>@Html.DisplayFor(modelItem => item.ExpiresDate)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Status)</td>
+                                <td class="text-nowrap text-center">
+                                    <a asp-action="DetailCompany" asp-route-id="@item.Id" class="btn btn-sm btn-raised btn-raised-info"><i class="fa fa-list"></i></a>
+                                    <a asp-action="EditCompany" asp-route-id="@item.Id" class="btn btn-sm btn-raised btn-raised-primary"><i class="fa fa-edit"></i></a>
+                                    <a asp-action="RemoveCompany" asp-route-id="@item.Id" class="btn btn-sm btn-raised btn-raised-danger"><i class="fa fa-trash"></i></a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <pager class="pager-container" list="@Model" asp-controller="Dashboard" asp-action="Orders" options="@SitePagedListRenderOptions.Boostrap4CustomizedText" />
+            </div>
+        </div>
+    </div>
+</div>

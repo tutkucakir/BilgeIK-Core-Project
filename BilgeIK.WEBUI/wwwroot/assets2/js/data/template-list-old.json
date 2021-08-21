@@ -1,0 +1,580 @@
+[
+  {
+    "name": "Learning Management",
+    "icon": "dashboard",
+    "link": "dashboards/dashboard.learningManagement.html",
+    "type": "link"
+  },
+  {
+    "name": "Analytic",
+    "icon": "dashboard",
+    "link": "dashboard.analytic.html",
+    "type": "link"
+  },
+  {
+    "name": "Analytic 2",
+    "icon": "dashboard",
+    "link": "dashboard.Analytic-2.html",
+    "type": "link"
+  },
+  {
+    "name": "Cryptocurrency",
+    "icon": "dashboard",
+    "link": "dashboard.cryptoCurrency.html",
+    "type": "link"
+  },
+
+  {
+    "name": "Sales",
+    "icon": "dashboard",
+    "link": "dashboard.sales.html",
+    "type": "link"
+  },
+  {
+    "name": "Sales 2",
+    "icon": "dashboard",
+    "link": "dashboard.sales2.html",
+    "type": "link"
+  },
+  {
+    "name": "Donation",
+    "icon": "dashboard",
+    "link": "dashboard.donation.html",
+    "type": "link"
+  },
+  {
+    "name": "Job Management",
+    "icon": "dashboard",
+    "link": "dashboard.jobManagement.html",
+    "type": "link"
+  },
+
+  {
+    "name": "Accordion",
+    "link": "components.accordion.html",
+    "type": "link"
+  },
+  {
+    "name": "Alert",
+    "link": "components.alert.html",
+    "type": "link"
+  },
+  {
+    "name": "Badge",
+    "link": "components.badge.html",
+    "type": "link"
+  },
+  {
+    "name": "Breadcrumb",
+    "link": "components.breadcrumb.html",
+    "type": "link"
+  },
+  {
+    "name": "Buttons",
+    "link": "components.buttons.html",
+    "type": "link"
+  },
+  {
+    "name": "Dropdown",
+    "link": "components.dropdown.html",
+    "type": "link"
+  },
+  {
+    "name": "List",
+    "link": "components.List.html",
+    "type": "link"
+  },
+  {
+    "name": "Forms",
+    "link": "components.forms.html",
+    "type": "link"
+  },
+  {
+    "name": "Forms Layout",
+    "link": "components.formsLayout.html",
+    "type": "link"
+  },
+  {
+    "name": "Pagination",
+    "link": "components.pagination.html",
+    "type": "link"
+  },
+  {
+    "name": "Popovers",
+    "link": "components.popovers.html",
+    "type": "link"
+  },
+  {
+    "name": "Progressbar",
+    "link": "components.progressbar.html",
+    "type": "link"
+  },
+  {
+    "name": "Snackbar",
+    "link": "components.snackbar.html",
+    "type": "link"
+  },
+  {
+    "name": "Tab",
+    "link": "components.tab.html",
+    "type": "link"
+  },
+  {
+    "name": "Tooltip",
+    "link": "components.tooltip.html",
+    "type": "link"
+  },
+
+  {
+    "name": "Form Validation",
+    "link": "forms.formValidation.html",
+    "type":"link"
+  },
+  {
+    "name": "Datepicker",
+    "link": "forms.datepicker.html",
+    "type":"link"
+  },
+  {
+    "name": "Form Repeater",
+    "link": "forms.form-repeater.html",
+    "type":"link"
+  },
+  {
+    "name": "Time Picker",
+    "link": "forms.timepicker.html",
+    "type":"link"
+  },
+  {
+    "name": "Touch Spin",
+    "link": "forms.touchspin.html",
+    "type":"link"
+  },
+  {
+    "name": "Bootstrap Maxlength",
+    "link": "forms.bootstrap-maxlength.html",
+    "type":"link"
+  },
+  {
+    "name": "Bootstrap Tagify",
+    "link": "forms.bootstrap-tagify.html",
+    "type":"link"
+  },
+  {
+    "name": "Select2 autoselect",
+    "link": "forms.select2.html",
+    "type":"link"
+  },
+  {
+    "name": "Bootstrap Select",
+    "link": "forms.bootstrap-select.html",
+    "type":"link"
+  },
+  {
+    "name": "Typeahead autoselect",
+    "link": "forms.typeahead.html",
+    "type": "link"
+  },
+  {
+    "name": "Inputmask",
+    "link": "forms.inputmask.html",
+    "type": "link"
+  },
+  {
+    "name": "Nouislider",
+    "link": "forms.nouislider.html",
+    "type": "link"
+  },
+  {
+    "name": "Clipboard",
+    "link": "forms.clipboard.html",
+    "type": "link"
+  },
+  {
+    "name": "Dropzone",
+    "link": "forms.dropzone.html",
+    "type": "link"
+  },
+  {
+    "name": "Uppy",
+    "link": "forms.uppy.html",
+    "type": "link"
+  },
+  {
+    "name": "FilePond",
+    "type": "link",
+    "link": "file.pond.html"
+  },
+  {
+    "name": "Editor",
+    "type": "link",
+    "icon": "format_list_numbered",
+    "link": "editor.html"
+  },
+  {
+    "name": "Image Crop",
+    "type": "link",
+    "icon": "add_photo_alternate",
+    "link": "imagecrop.html"
+  },
+  {
+    "name": "General widgets",
+    "link": "widgets.general.html",
+    "type":"link"
+  },
+  {
+    "name": "Charts widgets",
+    "link": "widgets.charts.html",
+    "type":"link"
+  },
+  {
+    "name": "Wizard v1",
+    "link": "components.wizard.v1.html",
+    "type": "link"
+  },
+  {
+    "name": "Wizard v2",
+    "link": "components.wizard.v3.html",
+    "type":"link"
+  },
+  {
+    "name": "Datatable Basic",
+    "link": "table.datatables.html",
+    "type": "link"
+  },
+  {
+    "name": "Scrollable datatable",
+    "link": "table.datatableScrollable.html",
+    "type": "link"
+  },
+  {
+    "name": "Complex Header datatable",
+    "link": "table.datatableComplexHeader.html",
+    "type": "link"
+  },
+  {
+    "name": "Pagination Option datatable",
+    "link": "table.datatablePagintaionOption.html",
+    "type": "link"
+  },
+  {
+    "name": "Column Rendering datatable",
+    "link": "table.datatableColumnRendering.html",
+    "type": "link"
+  },
+  {
+    "name": "Multiple Controls datatable",
+    "link": "table.datatableMultipleControl.html",
+    "type": "link"
+  },
+  {
+    "name": "Row Grouping datatable",
+    "link": "table.datatableRowGrouping.html",
+    "type": "link"
+  },
+  {
+    "name": "Footer Callback datatable",
+    "link": "table.datatableFooterCallback.html",
+    "type": "link"
+  },
+  {
+    "name": "Datatable HTML",
+    "link": "table.datatableHTML.html",
+    "type": "link"
+  },
+  {
+    "name": "Ajax datatable",
+    "link": "table.datatableAjax.html",
+    "type": "link"
+  },
+  {
+    "name": "Javascript datatable",
+    "link": "table.datatableJavascript.html",
+    "type": "link"
+  },
+  {
+    "name": "Column Select",
+    "link": "table.datatableColumnSelect.html",
+    "type": "link"
+  },
+  {
+    "name": "Column Search",
+    "link": "table.datatableColumnSearch.html",
+    "type": "link"
+  },
+  {
+    "name": "Datatable Button",
+    "link": "table.datatableButton.html",
+    "type": "link"
+  },
+  {
+    "name": "Gijgo Grid",
+    "type": "link",
+    "icon": "grid_on",
+    "link": "gijgo.grid.html"
+  },
+  {
+    "name": "ECharts",
+    "link": "charts.eChart.html",
+    "type": "link"
+  },
+  {
+    "name": "ChartJS",
+    "link": "charts.chartjs.html",
+    "type": "link"
+  },
+  {
+    "name": "Area",
+    "link": "apexCharts.area.html",
+    "type": "link"
+  },
+  {
+    "name": "Bar",
+    "link": "apexCharts.bar.html",
+    "type": "link"
+  },
+  {
+    "name": "Bubble",
+    "link": "apexCharts.bubble.html",
+    "type": "link"
+  },
+  {
+    "name": "Candlestick",
+    "link": "apexCharts.candleStick.html",
+    "type": "link"
+  },
+  {
+    "name": "Column",
+    "link": "apexCharts.column.html",
+    "type": "link"
+  },
+  {
+    "name": "Line",
+    "link": "apexCharts.line.html",
+    "type": "link"
+  },
+  {
+    "name": "Mix",
+    "link": "apexCharts.mix.html",
+    "type": "link"
+  },
+  {
+    "name": "Pie",
+    "link": "apexCharts.pie.html",
+    "type": "link"
+  },
+  {
+    "name": "Radar",
+    "link": "apexCharts.radar.html",
+    "type": "link"
+  },
+  {
+    "name": "Radialbar",
+    "link": "apexCharts.RadialBar.html",
+    "type": "link"
+  },
+  {
+    "name": "Sparkline",
+    "link": "apexCharts.sparkline.html",
+    "type": "link"
+  },
+  {
+    "name": "Scatter",
+    "link": "apexCharts.scatter.html",
+    "type": "link"
+  },
+  {
+    "name": "Confirm",
+    "link": "dialogs.confirm.html",
+    "type": "link"
+  },
+  {
+    "name": "SweetAlert 2",
+    "link": "dialogs.sweetAlert2.html",
+    "type": "link"
+  },
+  {
+    "name": "404",
+    "link": "../sessions/404.html",
+    "type": "link"
+  },
+  {
+    "name": "error",
+    "link": "../sessions/error.html",
+    "type": "link"
+  },
+  {
+    "name": "forgot",
+    "link": "../sessions/forgot.html",
+    "type": "link"
+  },
+  {
+    "name": "lockscreen",
+    "link": "../sessions/lockscreen.html",
+    "type": "link"
+  },
+  {
+    "name": "signin",
+    "link": "../sessions/signin.html",
+    "type": "link"
+  },
+  {
+    "name": "signin 2",
+    "link": "../sessions/signin2.html",
+    "type": "link"
+  },
+  {
+    "name": "signin 3",
+    "link": "../sessions/signin3.html",
+    "type": "link"
+  },
+  {
+    "name": "signin 4",
+    "link": "../sessions/signin4.html",
+    "type": "link"
+  },
+  {
+    "name": "signup",
+    "link": "../sessions/signup.html",
+    "type": "link"
+  },
+  {
+    "name": "signup 2",
+    "link": "../sessions/signup2.html",
+    "type": "link"
+  },
+  {
+    "name": "signup 3",
+    "link": "../sessions/signup3.html",
+    "type": "link"
+  },
+  {
+    "name": "signup 4",
+    "link": "../sessions/signup4.html",
+    "type": "link"
+  },
+  {
+    "name": "FAQ V1",
+    "link": "faq.faq.v1.html",
+    "type": "link"
+  },
+  {
+    "name": "FAQ V2",
+    "link": "faq.faq.v2.html",
+    "type": "link"
+  },
+  {
+    "name": "FAQ V3",
+    "link": "faq.faq.v3.html",
+    "type": "link"
+  },
+  {
+    "name": "List Column",
+    "link": "list.column-list.html",
+    "type": "link"
+  },
+  {
+    "name": "List Column 2",
+    "link": "list.column-list-2.html",
+    "type": "link"
+  },
+  {
+    "name": "List Column 3",
+    "link": "list.column-list-3.html",
+    "type": "link"
+  },
+  {
+    "name": "List Column Row",
+    "link": "list.column-list-row.html",
+    "type": "link"
+  },
+  {
+    "name": "Pricing v1",
+    "link": "pricing.v1.html",
+    "type": "link"
+  },
+  {
+    "name": "Pricing v2",
+    "link": "pricing.v2.html",
+    "type": "link"
+  },
+  {
+    "name": "Invoice v1",
+    "type": "link",
+    "link": "invoice.invoice.v1.html"
+  },
+  {
+    "name": "Invoice v2",
+    "type": "link",
+    "link": "invoice.invoice.v2.html"
+  },
+  {
+    "name": "Invoice v3",
+    "type": "link",
+    "link": "invoice.invoice.v3.html"
+  },
+  {
+    "name": "Profile",
+    "link": "widgets.profile.html",
+    "type":"link"
+  },
+  {
+    "name": "Drag & Drop",
+    "type": "link",
+    "icon": "open_with",
+    "link": "dragAndDrop.html"
+  },
+  {
+    "name": "Event Calendar",
+    "type": "link",
+    "link": "event-calendar.html"
+  },
+  {
+    "name": "Note",
+    "type": "link",
+    "icon": "book",
+    "link": "app.note.html"
+  },
+  {
+    "name": "Inbox",
+    "type": "link",
+    "icon": "all_inbox",
+    "link": "inbox.html"
+  },
+  {
+    "name": "Chat",
+    "type": "link",
+    "icon": "chat",
+    "link": "chat.html"
+  },
+  {
+    "name": "Sass Variables",
+    "type": "link",
+    "icon": "style",
+    "link": "sass.variable.html"
+  },
+  {
+    "name": "Colors",
+    "type": "link",
+    "icon": "color_lens",
+    "link": "utilities.color.html"
+  },
+  {
+    "name": "Shadows",
+    "type": "link",
+    "icon": "flip_to_front",
+    "link": "utilities.shadow.html"
+  },
+  {
+    "name": "Spacings",
+    "type": "link",
+    "icon": "space_bar",
+    "link": "utilities.spacing.html"
+  },
+  {
+    "name": "Typography",
+    "type": "link",
+    "icon": "text_fields",
+    "link": "utilities.typography.html"
+  }
+]

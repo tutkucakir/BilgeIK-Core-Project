@@ -1,0 +1,75 @@
+﻿@model Company
+@{
+    ViewData["Title"] = "Firma Yetkilisi Paneli";
+    Layout = "~/Views/Shared/_ManagerLayout.cshtml";
+}
+
+<div class="mx-lg mt-lg">
+    <div class="row">
+        <div class="col-lg-12 mb-md">
+            <div class="card">
+                <div class="card-body d-flex">
+                    <div>
+
+                        <h4 class="heading-muted mb-xs"><span class="badge badge-opacity badge-primary rounded-circle mb-sm"><i class="fa fa-building"></i></span>@Model.CompanyName</h4>
+                        <h6 class="font-weight-bold"><i class="fa fa-phone"></i> Telefon: @Model.CompanyPhone &nbsp; <i class="fa fa-map-marker"></i> Adres: @Model.CompanyAdress &nbsp; <i class="fa fa-clock"></i> Son Kullanma Tarihi: @Model.ExpiresDate.ToShortDateString()</h6>
+                        <a asp-action="DetailCompany"><span class="text-primary">Şirket detay ve düzenleme sayfası <i class="fa fa-arrow-right"></i></span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-12 mb-md">
+            <div class="card">
+                <div class="card-body d-flex">
+                    <div>
+                        <span class="badge badge-opacity badge-success rounded-circle mb-sm"><i class="fa fa-users"></i></span>
+                        <h6 class="heading-muted mb-xs">Sistem Onaylı Toplam Çalışan</h6>
+                        <h4 class="font-weight-bold">@ViewBag.totalActiveUser</h4>
+                        <a asp-action="Index" asp-controller="Employees" asp-area="Manager"><span class="text-primary">Onay Bekleyen Personel: @ViewBag.totalPendingUser</span></a>
+                    </div>
+                </div>
+            </div> 
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-12 mb-md">
+            <div class="card">
+                <div class="card-body d-flex">
+                    <div>
+                        <span class="badge badge-opacity badge-primary rounded-circle mb-sm"><i class="fa fa-plane"></i></span>
+                        <h6 class="heading-muted mb-xs">Onaylı İzinler</h6>
+                        <h4 class="font-weight-bold">@ViewBag.totalLeaves</h4>
+                        <a asp-controller="Employees" asp-action="Leaves" asp-area="Manager"><span class="text-primary">Onay Bekleyen İzinler: @ViewBag.pendingLeaves</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-12 mb-md">
+            <div class="card">
+                <div class="card-body d-flex">
+                    <div>
+                        <span class="badge badge-opacity badge-danger rounded-circle mb-sm"><i class="fa fa-heart"></i></span>
+                        <h6 class="heading-muted mb-xs">Onaylı Raporlar</h6>
+                        <h4 class="font-weight-bold">@ViewBag.totalReports</h4>
+                        <a asp-controller="Employees" asp-action="Reports" asp-area="Manager"><span class="text-primary">Onay Bekleyen Raporlar: @ViewBag.pendingReports</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-12 mb-md">
+            <div class="card">
+                <div class="card-body d-flex">
+                    <div>
+                        <span class="badge badge-opacity badge-warning rounded-circle mb-sm"><i class="fa fa-upload"></i></span>
+                        <h6 class="heading-muted mb-xs">Onaylı Özlük Dosyaları</h6>
+                        <h4 class="font-weight-bold">@ViewBag.totalDocuments</h4>
+                        <a asp-controller="ManagerDashboard" asp-action="PendingDocuments" asp-area="Manager"><span class="text-primary">Onay Bekleyen Dosyalar: @ViewBag.pendingDocuments</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

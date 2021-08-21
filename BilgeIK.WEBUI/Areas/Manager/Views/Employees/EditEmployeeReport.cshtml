@@ -1,0 +1,146 @@
+﻿@model BilgeIK.WEBUI.ViewModels.ReportVM
+
+@{
+    ViewData["Title"] = "Rapor Düzenleme";
+    Layout = "~/Views/Shared/_ManagerLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <h2 class="doc-section-title">Rapor Düzenleme Formu</h2>
+
+            <div class="card-body">
+                <form asp-action="EditEmployeeReport">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div asp-validation-summary="All" class="text-danger"></div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label asp-for="Hospital" class="control-label"></label>
+                                <input asp-for="Hospital" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label asp-for="Condition" class="control-label"></label>
+                                <input asp-for="Condition" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label asp-for="DoctorName" class="control-label"></label>
+                                <input asp-for="DoctorName" class="form-control" />
+                                <span asp-validation-for="DoctorName" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label asp-for="FromDate" class="control-label"></label>
+                                <input asp-for="FromDate" class="form-control" />
+                                <span asp-validation-for="FromDate" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label asp-for="ToDate" class="control-label"></label>
+                                <input asp-for="ToDate" class="form-control" />
+                                <span asp-validation-for="ToDate" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label asp-for="PlannedDay" class="control-label"></label>
+                                <input asp-for="PlannedDay" class="form-control" readonly />
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label asp-for="ExpiresDate" class="control-label"></label>
+                                <input asp-for="ExpiresDate" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label asp-for="UsedDay" class="control-label"></label>
+                                <input asp-for="UsedDay" class="form-control" readonly />
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label asp-for="Notes" class="control-label"></label>
+                                <input asp-for="Notes" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label asp-for="DefinitionId" class="control-label"></label>
+                                <select asp-for="DefinitionId" class="form-control">
+                                    @foreach (Definition item in Model.Definition)
+                                    {
+                                        if (Model.DefinitionId == item.Id)
+                                        {
+                                            <option value="@item.Id" selected>@item.Name</option>
+                                        }
+                                        else
+                                        {
+                                            <option value="@item.Id">@item.Name</option>
+                                        }
+
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label asp-for="Status" class="control-label"></label>
+                                <select asp-for="@Model.Status" class="form-control js-example-basic-single" asp-items="Html.GetEnumSelectList<BilgeIK.CORE.Entity.Enums.Status>()"></select>
+                            </div>
+                        </div>
+                        <div class="col-md-12 text-center">
+                            <div class="form-group">
+                                <input type="hidden" asp-for="UserId" class="form-control" />
+                                <input type="hidden" asp-for="Id" class="form-control" />
+                                <input type="submit" value="Güncelle" class="btn btn-raised btn-primary" />
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script>
+    $(document).ready(function () {
+        $('input[name="ToDate"]').change(function () {
+            var fromDate = $('input[name="FromDate"]').val();
+            var toDate = $('input[name="ToDate"]').val();
+            if (toDate < fromDate) {
+                alert("Rapor bitiş tarihi, başlangıç tarihinden önce olmamalıdır!");
+                $('input[name="ToDate"]').val('');
+                $('input[name="PlannedDay"]').val('');
+            } else {
+                $('input[name="PlannedDay"]').val(DateCalculate(fromDate, toDate));
+            }
+
+        });
+    });
+
+    function DateCalculate(date1, date2) {
+        var firstDate = new Date(date1);
+        var secondDate = new Date(date2);
+        var Diff = Math.abs(firstDate.getTime() - secondDate.getTime());
+        var DiffSec = Math.round(Diff / 86400000) + 1; //+1 çünkü 1 günlük rapor alındığında aynı gün izin başlar ve aynı gün biter.
+        //Rapor dönüşü başlama tarihi Sorumlu tarafından girilir.
+        return DiffSec;
+    }
+    </script>
+
+}

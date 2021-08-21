@@ -1,0 +1,62 @@
+﻿@model BilgeIK.WEBUI.ViewModels.SalaryBonusVM
+
+@{
+    ViewData["Title"] = "Ek Maaş Bilgilerini Düzenleme";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <h2 class="doc-section-title">Personel Ek Ödeme Düzenleme Formu</h2>
+            <div class="card-body">
+                <form asp-action="EditMemberSBonus">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div asp-validation-summary="All" class="text-danger"></div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label asp-for="Bonus" class="control-label"></label>
+                                <input asp-for="Bonus" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label asp-for="Description" class="control-label"></label>
+                                <input asp-for="Description" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label asp-for="Date" class="control-label"></label>
+                                <input asp-for="Date" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label asp-for="Status" class="control-label"></label>
+                                <select asp-for="@Model.Status" class="form-control js-example-basic-single" asp-items="Html.GetEnumSelectList<BilgeIK.CORE.Entity.Enums.Status>()"></select>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <input type="hidden" asp-for="ApproverUserId" class="form-control" />
+                                <input type="hidden" asp-for="UserId" class="form-control" />
+                                <input type="hidden" asp-for="Id" class="form-control" />
+                                <input type="submit" value="Güncelle" class="btn btn-raised btn-primary" />
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

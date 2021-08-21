@@ -1,0 +1,84 @@
+﻿@model Tuple<Order, List<BankAccount>>
+
+@{
+    ViewData["Title"] = "Sipariş Detayı";
+    Layout = "~/Views/Shared/_ManagerLayout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <h2 class="doc-section-title">Sipariş Detayı</h2>
+            <div class="card-body">
+                <dl class="row">
+                    <dt class="col-sm-5">
+                        @Html.DisplayNameFor(model => Model.Item1.OrderNo)
+                    </dt>
+                    <dd class="col-sm-7">
+                        @Html.DisplayFor(model => Model.Item1.OrderNo)
+                    </dd>
+                    <dt class="col-sm-5">
+                        @Html.DisplayNameFor(model => Model.Item1.OrderDate)
+                    </dt>
+                    <dd class="col-sm-7">
+                        @Html.DisplayFor(model => Model.Item1.OrderDate)
+                    </dd>
+                    <dt class="col-sm-5">
+                        @Html.DisplayNameFor(model => Model.Item1.TotalPrice)
+                    </dt>
+                    <dd class="col-sm-7">
+                        @Html.DisplayFor(model => Model.Item1.TotalPrice)
+                    </dd>
+                    <dt class="col-sm-5">
+                        Firma
+                    </dt>
+                    <dd class="col-sm-7">
+                        @Model.Item1.Company.CompanyName
+                    </dd>
+                    <dt class="col-sm-5">
+                        Paket
+                    </dt>
+                    <dd class="col-sm-7">
+                        @Model.Item1.CompanyPackage.Name (+ @Model.Item1.CompanyPackage.AddMonth.ToString() ay)
+                    </dd>
+                    <dt class="col-sm-5">
+                        Durumu
+                    </dt>
+                    <dd class="col-sm-7">
+                        @Html.DisplayFor(model => Model.Item1.Status)
+                    </dd>
+                </dl>
+                <div class="row">
+                    <div class="col-md-12 mt-2">
+                        <h3>Hesap Numaralarımız</h3>
+                    </div>
+                    <div class="col-md-12">
+                        <table class="table table-sm table-borderless">
+                            <thead>
+                                <tr>
+                                    <th>Banka</th>
+                                    <th>Hesap Bilgileri</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (BankAccount item in Model.Item2)
+    {
+                                    <tr>
+                                        <td>@item.Bank</td>
+                                        <td>
+                                            <strong>Banka Şubesi: </strong> @item.BankBranch<br>
+                                            <strong>Hesap Numarası: </strong> @item.AccountNumber<br>
+                                            <strong>IBAN Numarası: </strong> @item.IBAN<br>
+                                            <strong>Hesap Sahibi: </strong> @item.AccountHolderInfo
+                                        </td>
+                                    </tr>
+    }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

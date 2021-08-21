@@ -1,0 +1,61 @@
+﻿@model BilgeIK.WEBUI.ViewModels.BankAccountVM
+
+@{
+    ViewData["Title"] = "Banka Hesabı Düzenleme Formu";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+                <form asp-action="EditBankAccount">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="IBAN" class="control-label"></label>
+                        <input asp-for="IBAN" class="form-control" />
+                        <span asp-validation-for="IBAN" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Bank" class="control-label"></label>
+                        <input asp-for="Bank" class="form-control" />
+                        <span asp-validation-for="Bank" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="BankBranch" class="control-label"></label>
+                        <input asp-for="BankBranch" class="form-control" />
+                        <span asp-validation-for="BankBranch" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="AccountNumber" class="control-label"></label>
+                        <input asp-for="AccountNumber" class="form-control" />
+                        <span asp-validation-for="AccountNumber" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="AccountHolderInfo" class="control-label"></label>
+                        <input asp-for="AccountHolderInfo" class="form-control" />
+                        <span asp-validation-for="AccountHolderInfo" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Status" class="control-label"></label>
+                        <select asp-for="@Model.Status" class="form-control js-example-basic-single" asp-items="Html.GetEnumSelectList<BilgeIK.CORE.Entity.Enums.Status>()"></select>
+                    </div>
+                    <div class="form-group">
+                        <input type="hidden" asp-for="Id" class="form-control" />
+                        <input type="submit" value="Güncelle" class="btn btn-raised btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,83 @@
+﻿
+@{
+    ViewData["Title"] = "Panel Anasayfası";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="mx-lg mt-lg">
+    <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm-12 mb-md">
+            <div class="card">
+                <div class="card-body d-flex">
+                    <div>
+                        <span class="badge badge-opacity badge-primary rounded-circle mb-sm"><i class="fa fa-building"></i></span>
+                        <a asp-action="Companies" asp-controller="Dashboard">Firmalar <i class="fa fa-arrow-right"></i></a>
+                        <h6 class="heading-muted mb-xs">Toplam Aktif Firma</h6>
+                        <h4 class="font-weight-bold">@ViewBag.companyCounter </h4><span class="text-primary">Onay Bekleyen: @ViewBag.pendingCompanyCounter</span>
+                    </div>
+                    <div id="trafficPie"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 col-sm-12 mb-md">
+            <div class="card">
+                <div class="card-body d-flex">
+                    <div>
+                        <span class="badge badge-opacity badge-success rounded-circle mb-sm"><i class="fa fa-users"></i></span>
+                        <a asp-action="MemberList" asp-controller="Members">Kullanıcılar <i class="fa fa-arrow-right"></i></a>
+                        <h6 class="heading-muted mb-xs">Toplam Aktif Kullanıcı</h6>
+                        <h4 class="font-weight-bold">@ViewBag.totalActiveUser</h4><span class="text-primary">Onay Bekleyen Kullanıcı: @ViewBag.totalPendingUser</span>
+                    </div>
+                    <div id="trafficPie"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 col-sm-12 mb-md">
+            <div class="card">
+                <div class="card-body d-flex">
+                    <div>
+                        <span class="badge badge-opacity badge-secondary rounded-circle mb-sm"><i class="fa fa-shopping-basket"></i></span>
+                        <a asp-action="Orders" asp-controller="Dashboard">Siparişler <i class="fa fa-arrow-right"></i></a>
+                        <h6 class="heading-muted mb-xs">Onaylı Siparişler</h6>
+                        <h4 class="font-weight-bold">@ViewBag.totalOrders</h4>
+                        <span class="text-primary">Onay Bekleyen Siparişler: @ViewBag.pendingOrders</span>
+                    </div>
+                    <div id="trafficPie"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6 mb-md">
+            <div class="card">
+                <div class="card-body d-flex">
+                    <div>
+                        <span class="badge badge-opacity badge-danger rounded-circle mb-sm"><i class="fa fa-list"></i></span>
+                        <a asp-action="ContactForm" asp-controller="Dashboard">Gelen Mesajlar <i class="fa fa-arrow-right"></i></a>
+                        <h6 class="heading-muted mb-xs">İletişim Talepleri</h6>
+                        <h4 class="font-weight-bold">@ViewBag.pendingContacts</h4>
+                    </div>
+                    <div id="trafficPie"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6 mb-md">
+            <div class="card">
+                <div class="card-body d-flex">
+                    <div>
+                        <span class="badge badge-opacity badge-secondary rounded-circle mb-sm"><i class="fa fa-comment"></i></span>
+                        <a asp-action="CustomerComments" asp-controller="Members">Yorumlar <i class="fa fa-arrow-right"></i></a>
+
+                        <h6 class="heading-muted mb-xs">Onay Bekleyen Yorumlar</h6>
+                        <h4 class="font-weight-bold">@ViewBag.pendingComments</h4>
+                    </div>
+                    <div id="trafficPie"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+

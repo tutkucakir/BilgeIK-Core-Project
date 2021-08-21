@@ -1,0 +1,71 @@
+﻿@model BilgeIK.WEBUI.ViewModels.SalaryBonusVM
+
+@{
+    ViewData["Title"] = "Ek Ödeme Detayı";
+    Layout = "~/Views/Shared/_ManagerLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12 mb-2" style="border-bottom:1px solid #efefef">
+                        <div class="d-flex justify-content-between">
+                            <div class="card-title">Personel Ek Ödeme Bilgileri</div>
+                            <div class="dropdown">
+                                <button class="btn btn-primary btn-sm" id="dropdownMenuButton" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="material-icons m-0">more_horiz</i></button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" asp-action="EditEmployeeSBonus" asp-route-id="@Model.Id"><i class="fa fa-edit text-primary"></i>&emsp;Düzenle</a>
+                                    <a class="dropdown-item" asp-action="RemoveEmployeeSBonus" asp-route-id="@Model.Id" onclick="confirmDel();"><i class="fa fa-trash text-danger"></i>&emsp;Sil</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <dl class="row">
+                    <dt class="col-sm-5">
+                        Personelin Adı ve Soyadı
+                    </dt>
+                    <dd class="col-sm-7">
+                        @Model.AppUser.FirstName 
+                        @Model.AppUser.LastName 
+                    </dd>
+                    <dt class="col-sm-5">
+                        @Html.DisplayNameFor(model => model.Bonus)
+                    </dt>
+                    <dd class="col-sm-7">
+                        @Html.DisplayFor(model => model.Bonus)
+                    </dd>
+                    <dt class="col-sm-5">
+                        @Html.DisplayNameFor(model => model.Description)
+                    </dt>
+                    <dd class="col-sm-7">
+                        @Html.DisplayFor(model => model.Description)
+                    </dd>
+                    <dt class="col-sm-5">
+                        @Html.DisplayNameFor(model => model.Date)
+                    </dt>
+                    <dd class="col-sm-7">
+                        @Html.DisplayFor(model => model.Date)
+                    </dd>
+
+                    <dt class="col-sm-5">
+                        Sisteme Kaydeden Personel
+                    </dt>
+                    <dd class="col-sm-7">
+                        @Model.ApproverUser.FirstName
+                        @Model.ApproverUser.LastName
+                    </dd>
+                    <dt class="col-sm-5">
+                        @Html.DisplayNameFor(model => model.Status)
+                    </dt>
+                    <dd class="col-sm-7">
+                        @Html.DisplayFor(model => model.Status)
+                    </dd>
+
+                </dl>
+            </div>
+        </div>
+    </div>
+</div>

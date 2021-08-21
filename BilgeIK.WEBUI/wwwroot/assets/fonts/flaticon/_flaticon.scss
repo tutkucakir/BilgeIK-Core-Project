@@ -1,0 +1,80 @@
+    /*
+    Flaticon icon font: Flaticon
+    Creation date: 20/05/2020 06:43
+    */
+
+    
+        .fi:before{
+            display: inline-block;
+      font-family: "Flaticon";
+      font-style: normal;
+      font-weight: normal;
+      font-variant: normal;
+      line-height: 1;
+      text-decoration: inherit;
+      text-rendering: optimizeLegibility;
+      text-transform: none;
+      -moz-osx-font-smoothing: grayscale;
+      -webkit-font-smoothing: antialiased;
+      font-smoothing: antialiased;
+        }
+    
+        .flaticon-monitor:before { content: "\f100"; }
+    .flaticon-money:before { content: "\f101"; }
+    .flaticon-home-security:before { content: "\f102"; }
+    .flaticon-paper-plane:before { content: "\f103"; }
+    .flaticon-menu:before { content: "\f104"; }
+    .flaticon-home:before { content: "\f105"; }
+    .flaticon-documents:before { content: "\f106"; }
+    .flaticon-edit:before { content: "\f107"; }
+    .flaticon-boss:before { content: "\f108"; }
+    .flaticon-partnership:before { content: "\f109"; }
+    .flaticon-partnership-1:before { content: "\f10a"; }
+    .flaticon-success:before { content: "\f10b"; }
+    .flaticon-rocket-launch:before { content: "\f10c"; }
+    .flaticon-rocket:before { content: "\f10d"; }
+    .flaticon-business-and-trade:before { content: "\f10e"; }
+    .flaticon-enterprise:before { content: "\f10f"; }
+    .flaticon-cloud-computing:before { content: "\f110"; }
+    .flaticon-cloud-computing-1:before { content: "\f111"; }
+    .flaticon-cloud-computing-2:before { content: "\f112"; }
+    .flaticon-file:before { content: "\f113"; }
+    .flaticon-send:before { content: "\f114"; }
+    .flaticon-table:before { content: "\f115"; }
+    .flaticon-notification:before { content: "\f116"; }
+    .flaticon-person:before { content: "\f117"; }
+    .flaticon-menu-1:before { content: "\f118"; }
+    .flaticon-delete:before { content: "\f119"; }
+    .flaticon-close:before { content: "\f11a"; }
+    .flaticon-magnifying-glass:before { content: "\f11b"; }
+    .flaticon-settings:before { content: "\f11c"; }
+        
+        $font-Flaticon-monitor: "\f100";
+        $font-Flaticon-money: "\f101";
+        $font-Flaticon-home-security: "\f102";
+        $font-Flaticon-paper-plane: "\f103";
+        $font-Flaticon-menu: "\f104";
+        $font-Flaticon-home: "\f105";
+        $font-Flaticon-documents: "\f106";
+        $font-Flaticon-edit: "\f107";
+        $font-Flaticon-boss: "\f108";
+        $font-Flaticon-partnership: "\f109";
+        $font-Flaticon-partnership-1: "\f10a";
+        $font-Flaticon-success: "\f10b";
+        $font-Flaticon-rocket-launch: "\f10c";
+        $font-Flaticon-rocket: "\f10d";
+        $font-Flaticon-business-and-trade: "\f10e";
+        $font-Flaticon-enterprise: "\f10f";
+        $font-Flaticon-cloud-computing: "\f110";
+        $font-Flaticon-cloud-computing-1: "\f111";
+        $font-Flaticon-cloud-computing-2: "\f112";
+        $font-Flaticon-file: "\f113";
+        $font-Flaticon-send: "\f114";
+        $font-Flaticon-table: "\f115";
+        $font-Flaticon-notification: "\f116";
+        $font-Flaticon-person: "\f117";
+        $font-Flaticon-menu-1: "\f118";
+        $font-Flaticon-delete: "\f119";
+        $font-Flaticon-close: "\f11a";
+        $font-Flaticon-magnifying-glass: "\f11b";
+        $font-Flaticon-settings: "\f11c";

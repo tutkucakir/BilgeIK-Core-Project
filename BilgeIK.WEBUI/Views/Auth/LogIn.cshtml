@@ -1,0 +1,54 @@
+﻿@model BilgeIK.WEBUI.ViewModels.LoginVM
+
+@{
+    ViewData["Title"] = "Üye Girişi";
+    Layout = "~/Views/Shared/_AuthLayout.cshtml";
+}
+
+<div class="form-holder signin-2 px-xxl">
+    <div class="d-flex flex-column align-items-center mt-lg mb-xxl">
+        <img src="~/assets3/images/bilgeIK_logo.png" style="width:300px;">
+        
+        <span class="mb-md mt-lg mb-lg d-block">Hesabınıza Erişim için Giriş Yapınız</span>
+    </div>
+    <form asp-action="LogIn" method="post">
+        <div class="row">
+            <div class="col-md-12">
+                <div asp-validation-summary="All" class="text-danger"></div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label asp-for="Email" class="control-label"></label>
+                    <input asp-for="Email" class="form-control" />
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label asp-for="Password" class="control-label"></label>
+                    <input asp-for="Password" class="form-control" />
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="RememberMe" /> @Html.DisplayNameFor(model => model.RememberMe)
+                    </label>
+                </div>
+            </div>
+            <div class="col-md-12 text-center">
+                <div class="form-group">
+                    <button type="submit" class="btn btn-raised btn-raised-primary btn-block">Oturum Açın</button>
+                </div>
+            </div>
+            <div class="col-md-12 text-center">
+                <p>Hay Aksi! <a asp-action="EmailConfirmRequest">Doğrulama E-Postası Gelmedi</a> - <a asp-action="ResetPassword">Şifremi Unuttum</a></p>
+                <hr />
+                <p>Hesabınız yok mu? O halde ücretsiz deneme süreli <a asp-action="SignUp">hesap oluşturun!</a></p>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

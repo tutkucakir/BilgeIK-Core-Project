@@ -1,0 +1,1 @@
+{"version":3,"file":"faq.v1.css","sources":["faq/faq.v1.scss"],"sourcesContent":[".ul-faq-box img{\n  max-width: 150px;\n  height: 100px;\n}"],"names":[],"mappings":"AAAA,AAAA,WAAW,CAAC,GAAG,CAAA;EACb,SAAS,EAAE,KAAK;EAChB,MAAM,EAAE,KAAK,GACd"}

@@ -1,0 +1,77 @@
+﻿@model BilgeIK.WEBUI.ViewModels.CompanyVM
+
+@{
+    ViewData["Title"] = "EditCompany";
+    Layout = "~/Views/Shared/_ManagerLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <h2 class="doc-section-title">Firmayı Düzenliyorsunuz...</h2>
+
+            <div class="card-body">
+                <form asp-action="EditCompany" method="post" enctype="multipart/form-data">
+                    <div class="row">
+                        <div class="col-md-12"><div asp-validation-summary="All" class="text-danger"></div></div>
+
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <label asp-for="CompanyName" class="control-label"></label>
+                                <input asp-for="CompanyName" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="CompanyPhone" class="control-label"></label>
+                                <input asp-for="CompanyPhone" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label asp-for="CompanyAdress" class="control-label"></label>
+                                <input asp-for="CompanyAdress" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-md-3 text-right">
+                            @if (Model.Photo == null)
+                            {
+                                <img class="avatar-xl rounded-circle" src="~/uploads/building.jpg" style="max-height:225px; max-width:175px;" id="preview" alt="">
+                            }
+                            else
+                            {
+                                <img class="avatar-xl rounded-circle" src="~/uploads/@Model.Photo" style="max-height:225px; max-width:175px;" id="preview" alt="">
+                            }
+
+                        </div>
+                        <div class="col-md-7">
+                            <div class="form-group mt-2">
+                                <label asp-for="Photo" class="control-label"></label>
+                                <input type="file" asp-for="Photo" class="form-control" onchange="loadFile(event);" />
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 text-center">
+                            <div class="form-group">
+                                <input type="hidden" asp-for="Id" />
+                                <button class="btn btn-raised-primary" type="submit"><i class="fa fa-save"></i> Güncelleyin</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script>
+        var loadFile = function (event) {
+            var onizleme = document.getElementById('preview');
+            onizleme.src = URL.createObjectURL(event.target.files[0]);
+        };
+    </script>
+
+}

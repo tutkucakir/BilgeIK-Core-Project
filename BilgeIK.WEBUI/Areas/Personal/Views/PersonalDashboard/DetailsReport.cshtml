@@ -1,0 +1,88 @@
+﻿@model BilgeIK.WEBUI.ViewModels.ReportVM
+
+@{
+    ViewData["Title"] = "Rapor Detayları";
+    Layout = "~/Views/Shared/_PersonalLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-8 offset-2">
+        <div class="card">
+            <h2 class="doc-section-title">Rapor Detayı</h2>
+
+            <div class="card-body">
+                <dl class="row">
+                    <dt class="col-sm-5">
+                        @Html.DisplayNameFor(model => model.Hospital)
+                    </dt>
+                    <dd class="col-sm-7">
+                        @Html.DisplayFor(model => model.Hospital)
+                    </dd>
+                    <dt class="col-sm-5">
+                        @Html.DisplayNameFor(model => model.Condition)
+                    </dt>
+                    <dd class="col-sm-7">
+                        @Html.DisplayFor(model => model.Condition)
+                    </dd>
+                    <dt class="col-sm-5">
+                        @Html.DisplayNameFor(model => model.DoctorName)
+                    </dt>
+                    <dd class="col-sm-7">
+                        @Html.DisplayFor(model => model.DoctorName)
+                    </dd>
+                    <dt class="col-sm-5">
+                        @Html.DisplayNameFor(model => model.FromDate)
+                    </dt>
+                    <dd class="col-sm-7">
+                        @Html.DisplayFor(model => model.FromDate)
+                    </dd>
+                    <dt class="col-sm-5">
+                        @Html.DisplayNameFor(model => model.ToDate)
+                    </dt>
+                    <dd class="col-sm-7">
+                        @Html.DisplayFor(model => model.ToDate)
+                    </dd>
+                    <dt class="col-sm-5">
+                        @Html.DisplayNameFor(model => model.PlannedDay)
+                    </dt>
+                    <dd class="col-sm-7">
+                        @Html.DisplayFor(model => model.PlannedDay)
+                    </dd>
+                    <dt class="col-sm-5">
+                        @Html.DisplayNameFor(model => model.ExpiresDate)
+                    </dt>
+                    <dd class="col-sm-7">
+                        @Html.DisplayFor(model => model.ExpiresDate)
+                    </dd>
+                    <dt class="col-sm-5">
+                        @Html.DisplayNameFor(model => model.UsedDay)
+                    </dt>
+                    <dd class="col-sm-7">
+                        @Html.DisplayFor(model => model.UsedDay)
+                    </dd>
+                    <dt class="col-sm-5">
+                        @Html.DisplayNameFor(model => model.Notes)
+                    </dt>
+                    <dd class="col-sm-7">
+                        @Html.DisplayFor(model => model.Notes)
+                    </dd>
+                    <dt class="col-sm-5">
+                        Rapor Türü 
+                    </dt>
+                    <dd class="col-sm-7">
+                        @ViewBag.raporTuru
+                    </dd>
+                    <dt class="col-sm-5">
+                        Durumu
+                    </dt>
+                    <dd class="col-sm-7">
+                        @Html.DisplayFor(model => model.Status)
+                    </dd>
+                </dl>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

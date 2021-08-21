@@ -1,0 +1,86 @@
+﻿@model DefinitionTablesVM
+@{
+    ViewData["Title"] = "Tanımlamalar";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <h2 class="doc-section-title">Tanımlamalar</h2>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <a href="AddDefinition" class="btn btn-raised btn-sm btn-raised-warning mb-3"><i class="fa fa-plus"></i>  Tanımlama Ekle</a>
+                    </div>
+                    <div class="col-md-6">
+                        <h3>İzin Tanımlamaları</h3>
+                        <table class="table table-sm">
+                            <thead>
+                                <tr>
+                                    <th>Tanımlama</th>
+                                    <th class="text-center">İşlem</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (Model.Izinler.Count > 0)
+                                {
+                                    @foreach (BilgeIK.MODEL.Entities.Definition item in Model.Izinler)
+                                    {
+                                        <tr>
+                                            <td>@item.Name</td>
+                                            <td class="text-center">
+                                                <a asp-action="EditDefinition" asp-route-id="@item.Id" class="btn btn-sm btn-raised btn-raised-primary"><i class="fa fa-edit"></i></a>
+                                                <a asp-action="RemoveDefinition" asp-route-id="@item.Id" class="btn btn-sm btn-raised btn-raised-danger"><i class="fa fa-trash"></i></a>
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                                else
+                                {
+                                    <tr>
+                                        <td colspan="2" class="text-center">Kayıt bulunamadı.</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-md-6">
+                        <h3>Rapor  Tanımlamaları</h3>
+                        <table class="table table-sm">
+                            <thead>
+                                <tr>
+                                    <th>Tanımlama</th>
+                                    <th class="text-center">İşlem</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (Model.Raporlar.Count > 0)
+                                {
+                                    @foreach (BilgeIK.MODEL.Entities.Definition item in Model.Raporlar)
+                                    {
+                                        <tr>
+                                            <td>@item.Name</td>
+                                            <td class="text-center">
+                                                <a asp-action="EditDefinition" asp-route-id="@item.Id" class="btn btn-sm btn-raised btn-raised-primary"><i class="fa fa-edit"></i></a>
+                                                <a asp-action="RemoveDefinition" asp-route-id="@item.Id" class="btn btn-sm btn-raised btn-raised-danger"><i class="fa fa-trash"></i></a>
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                                else
+                                {
+                                    <tr>
+                                        <td colspan="2" class="text-center">Kayıt bulunamadı.</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+

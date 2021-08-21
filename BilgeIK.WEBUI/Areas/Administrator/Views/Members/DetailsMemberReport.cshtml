@@ -1,0 +1,106 @@
+﻿@model BilgeIK.WEBUI.ViewModels.ReportVM
+
+@{
+    ViewData["Title"] = "Rapor Detayı";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12 mb-2" style="border-bottom:1px solid #efefef">
+                        <div class="d-flex justify-content-between">
+                            <div class="card-title">Personel Rapor Bilgileri</div>
+                            <div class="dropdown">
+                                <button class="btn btn-primary btn-sm" id="dropdownMenuButton" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="material-icons m-0">more_horiz</i></button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" asp-action="EditMemberReport" asp-route-id="@Model.Id"><i class="fa fa-edit text-primary"></i>&emsp;Düzenle</a>
+                                    <a class="dropdown-item" asp-action="RemoveMemberReport" asp-route-id="@Model.Id" onclick="confirmDel();"><i class="fa fa-trash text-danger"></i>&emsp;Sil</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <dl class="row">
+                    <dt class="col-sm-5">
+                        Personelin Adı ve Soyadı
+                    </dt>
+                    <dd class="col-sm-7">
+                        @Model.AppUser.FirstName
+                        @Model.AppUser.LastName
+                    </dd>
+                    <dt class="col-sm-5">
+                        @Html.DisplayNameFor(model => model.Hospital)
+                    </dt>
+                    <dd class="col-sm-7">
+                        @Html.DisplayFor(model => model.Hospital)
+                    </dd>
+                    <dt class="col-sm-5">
+                        @Html.DisplayNameFor(model => model.Condition)
+                    </dt>
+                    <dd class="col-sm-7">
+                        @Html.DisplayFor(model => model.Condition)
+                    </dd>
+                    <dt class="col-sm-5">
+                        @Html.DisplayNameFor(model => model.DoctorName)
+                    </dt>
+                    <dd class="col-sm-7">
+                        @Html.DisplayFor(model => model.DoctorName)
+                    </dd>
+                    <dt class="col-sm-5">
+                        @Html.DisplayNameFor(model => model.FromDate)
+                    </dt>
+                    <dd class="col-sm-7">
+                        @Html.DisplayFor(model => model.FromDate)
+                    </dd>
+                    <dt class="col-sm-5">
+                        @Html.DisplayNameFor(model => model.ToDate)
+                    </dt>
+                    <dd class="col-sm-7">
+                        @Html.DisplayFor(model => model.ToDate)
+                    </dd>
+                    <dt class="col-sm-5">
+                        @Html.DisplayNameFor(model => model.PlannedDay)
+                    </dt>
+                    <dd class="col-sm-7">
+                        @Html.DisplayFor(model => model.PlannedDay)
+                    </dd>
+                    <dt class="col-sm-5">
+                        @Html.DisplayNameFor(model => model.ExpiresDate)
+                    </dt>
+                    <dd class="col-sm-7">
+                        @Html.DisplayFor(model => model.ExpiresDate)
+                    </dd>
+                    <dt class="col-sm-5">
+                        @Html.DisplayNameFor(model => model.UsedDay)
+                    </dt>
+                    <dd class="col-sm-7">
+                        @Html.DisplayFor(model => model.UsedDay)
+                    </dd>
+                    <dt class="col-sm-5">
+                        @Html.DisplayNameFor(model => model.Notes)
+                    </dt>
+                    <dd class="col-sm-7">
+                        @Html.DisplayFor(model => model.Notes)
+                    </dd>
+                    <dt class="col-sm-5">
+                        Rapor Türü
+                    </dt>
+                    <dd class="col-sm-7">
+                        @ViewBag.RaporTuru
+                    </dd>
+
+                    <dt class="col-sm-5">
+                        Rapor Durumu
+                    </dt>
+                    <dd class="col-sm-7">
+                        @Html.DisplayFor(model => model.Status)
+                    </dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+</div>

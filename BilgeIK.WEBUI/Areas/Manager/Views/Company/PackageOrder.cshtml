@@ -1,0 +1,78 @@
+﻿@model Tuple<Company, CompanyPackage>
+@{
+    ViewData["Title"] = "Paket Siparişi";
+    Layout = "~/Views/Shared/_ManagerLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-12 mb-2">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <h3>@Model.Item1.CompanyName</h3>
+                        <h4>Adres: @Model.Item1.CompanyAdress</h4>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <h5>Kayıt Tarihi</h5>
+                        @Model.Item1.RegisteredDate.ToShortDateString()
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <h5>Güncelleme Tarihi</h5>
+                        @Model.Item1.UpdatedDate.ToShortDateString()
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <h5>Son Erişim Tarihi</h5>
+                        @Model.Item1.ExpiresDate.ToShortDateString()
+                    </div>
+                    <div class="col-md-12 mt-3">
+                        <h2>Seçilen Paket</h2>
+                        <div class="table-responsive mb-xl">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th class="pl-0" scope="col">PAKET ADI</th>
+                                        <th scope="col">AÇIKLAMA</th>
+                                        <th scope="col">EK SÜRE</th>
+                                        <th class="text-right pr-0" scope="col">FİYAT</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="font-weight-bold pl-0">@Model.Item2.Name</td>
+                                        <td class="font-weight-bold">@Model.Item2.Description</td>
+                                        <td class="font-weight-bold">@Model.Item2.AddMonth /Ay</td>
+                                        <td class="font-weight-bold text-primary text-right pr-0">
+                                            @if (Model.Item2.NewPrice != null)
+                                            {
+                                                <s>@Model.Item2.Price</s><br>
+                                                <span>@Model.Item2.NewPrice TL</span>
+                                            }
+                                            else
+                                            {
+                                                <span>@Model.Item2.Price TL</span>
+                                            }
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="alert alert-info">
+                            <strong><i class="fa fa-info-circle"></i> Bilgi: </strong>
+                            Sipariş işlemini gerçekleştirdiğiniz tarihten itibaren 7 gün içinde hesap numaralarımıza Sipariş Kodunu açıklama kısmına yazarak paket ücretinizi Havale/EFT yolu ile ödeyiniz. Siparişi oluşturduğunuzda sipariş kodunuz ouşturulacaktır.
+                        </div>
+                    </div>
+                    <div class="col-md-12 text-center">
+                        <form asp-action="PackageOrder" method="post">
+                            <input type="hidden" asp-for="@Model.Item2.Id" />
+                            <button type="submit" class="btn btn-raised btn-primary"><i class="fa fa-shopping-cart"></i> Sipariş Oluştur</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

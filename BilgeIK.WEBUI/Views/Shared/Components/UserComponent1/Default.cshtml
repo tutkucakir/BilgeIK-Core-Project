@@ -1,0 +1,20 @@
+﻿@model BilgeIK.MODEL.Entities.AppUser
+
+
+
+<div class="app-user text-center">
+    <div class="app-user-photo">
+        @if(@Model.Photo==null){
+            <img src="~/uploads/noavatar.gif" alt="Avatar" />
+        }else{
+            <img src="~/uploads/@Model.Photo" alt="Avatar" />
+        }
+    </div>
+    <div class="app-user-info">
+        <span class="app-user-name">@Model.FirstName @Model.LastName</span>
+        <div class="app-user-control">
+            <a class="control-item" asp-controller="Auth" asp-action="ProfileSettings" asp-area=""><i class="material-icons"> settings</i></a>
+            <a class="control-item" asp-controller="Auth" asp-action="LogOut" asp-area=""><i class="material-icons"> exit_to_app</i></a>
+        </div>
+    </div>
+</div>

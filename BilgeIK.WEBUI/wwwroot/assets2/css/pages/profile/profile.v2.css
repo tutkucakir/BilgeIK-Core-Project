@@ -1,0 +1,24 @@
+/*
+  Color Inventory
+*/
+/* 
+  Color Design Tokens 
+*/
+/*
+$opacity-map: (
+  blue: (
+    100: #f31312,
+    .....,
+    900: #f32332
+  ),
+  red: (
+    100: #f31312,
+    .....,
+    900: #f32332
+  )
+)
+*/
+.ul-profile-2-carousel li {
+  background-color: #828D99; }
+
+/*# sourceMappingURL=profile.v2.css.map */

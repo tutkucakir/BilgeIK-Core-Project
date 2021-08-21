@@ -1,0 +1,51 @@
+﻿@model OrderVM
+
+@{
+    ViewData["Title"] = "Sipariş Kaydı Düzenleme Formu";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Sipariş Düzenleme Formu</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <form asp-action="EditOrder" method="post">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="OrderNo" class="control-label"></label>
+                        <input asp-for="OrderNo" class="form-control" readonly />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="OrderDate" class="control-label"></label>
+                        <input asp-for="OrderDate" class="form-control" readonly />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="TotalPrice" class="control-label"></label>
+                        <input asp-for="TotalPrice" class="form-control" readonly />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Status" class="control-label"></label>
+                        <select asp-for="@Model.Status" class="form-control js-example-basic-single" asp-items="Html.GetEnumSelectList<BilgeIK.CORE.Entity.Enums.Status>()"></select>
+                    </div>
+                    <div class="form-group">
+                        <input type="hidden" asp-for="CompanyPackageId" class="form-control" />
+                        <input type="hidden" asp-for="CompanyId" class="form-control" />
+                        <input type="hidden" asp-for="Id" class="form-control" />
+                        <input type="submit" value="Güncelle" class="btn btn-raised btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="mt-2">
+    <a asp-action="Orders">Sipariş Listesine Dön</a>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

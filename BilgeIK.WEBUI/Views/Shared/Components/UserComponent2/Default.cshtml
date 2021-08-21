@@ -1,0 +1,37 @@
+﻿@model BilgeIK.MODEL.Entities.AppUser
+
+<a asp-controller="Auth" asp-action="ProfileSettings" asp-area="" class="btn d-flex py-1 pl-2 pr-0 rounded" type="button">
+    <span class="m-0 mr-2 font-weight-normal">Merhaba, @Model.FirstName</span>
+    @if (@Model.Photo == null)
+    {
+        <img src="~/uploads/noavatar.gif" class="avatar-sm rounded-circle mr-1" />
+    }
+    else
+    {
+        <img src="~/uploads/@Model.Photo" class="avatar-sm rounded-circle mr-1" />
+    }
+    <div class="ripple-container"></div>
+</a>
+<div aria-labelledby="dropdownTopUserProfile">
+    <div class="card dropdown-menu p-0 ul-avatar-dropdown">
+        <div class="card-header bg-primary">
+            <div class="ul-avatar-dropdown-container">
+                @if (@Model.Photo == null)
+                {
+                    <img src="~/uploads/noavatar.gif" class="avatar-md rounded-circle mr-2" />
+                }
+                else
+                {
+                    <img src="~/uploads/@Model.Photo" class="avatar-md rounded-circle mr-21" />
+                }
+                <div class="content">
+                    <p class="text-white font-weight-semi m-0">@Model.FirstName @Model.LastName</p>
+                </div>
+            </div>
+        </div>
+        <div class="mt-xl"></div>
+        <div class="card-footer text-muted">
+            <button class="btn btn-raised btn-raised-primary btn-sm" type="button">Çıkış</button>
+        </div>
+    </div>
+</div>

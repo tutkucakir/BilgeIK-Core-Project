@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>@ViewBag.Title - Bilge IK</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400|Roboto:300,400,500,700,900|Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/assets2/css/vendors.bundle.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/github.min.css">
+    <link rel="stylesheet" href="~/assets2/css/main.bundle.min.css">
+    <link href="~/assets/vendors/sweetalert2/dist/sweetalert2.css" rel="stylesheet" />
+    @await RenderSectionAsync("HeaderScripts", required: false)
+</head>
+<body>
+    <div class="app-admin-wrap-layout-4 sidebar-full">
+        <div class="main-content-wrap">
+            <!-- header start-->
+            <div class="ul-mobile-top-header bg-slate">
+                <a asp-area="" asp-controller="Home" asp-action="Index"><img src="~/assets3/images/bilgeIK_logo2.png" height="60" /></a>
+                <div class="flex-grow-1"></div>
+                <button class="btn btn-icon btn-primary rounded-circle ul-header-menu-toggle text-white"><i class="material-icons">menu</i></button><i class="material-icons text-white ul-mobile-header-toggle">more_vert</i>
+            </div>
+            <div class="ul-header-4 px-md">
+                <div class="ul-header-4-content">
+                    <div class="ul-header-topbar">
+                        <div class="flex-grow-1"><img src="~/assets3/images/bilgeIK_logo.png" height="60" /></div>
+                        <div class="dropdown profile-dropdown">
+                            <div class="header-btn-group">
+                                <button class="btn btn-secondary rounded-circle btn-icon" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    @await Component.InvokeAsync("UserComponent3")
+                                </button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" asp-controller="Auth" asp-action="ProfileSettings" asp-area=""><i class="material-icons mr-2">settings</i>Profil Ayarlarınız</a>
+                                    <a class="dropdown-item" asp-controller="Auth" asp-action="LogOut" asp-area=""><i class="material-icons mr-2">exit_to_app</i>Çıkış</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- header close-->
+            <div class="main-content-wrap" style="margin-top:70px;">
+                <div class="container">
+                    <div class="subheader">
+                        <div class="subheader-container">
+                            <div class="subheader-main">
+                                <h3 class="subheader-title">Bilge IK</h3>
+                                <breadcrumb></breadcrumb>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="px-4">
+                        @RenderBody()
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="ul-sidebar-panel-overlay"> </div>
+    <script src="~/assets2/js/vendors.bundle.min.js"></script>
+    <script src="~/assets2/js/main.bundle.min.js"></script>
+    <script src="~/assets2/vendors/feather-icons/dist/feather.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
+    <script src="~/assets2/js/pages/doc.script.min.js"></script>
+    <script src="~/assets/vendors/sweetalert2/dist/sweetalert2.js"></script>
+    @if (TempData["returnMessage"] != null)
+    {
+
+        <script>
+            function results(title, description) {
+                Swal.fire({
+                    icon: title,
+                    title: description,
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            }
+        </script>
+
+        if (TempData["returnMessage"].ToString() == "success")
+        {
+            <script>
+                results("success", "İşleminiz başarıyla gerçekleştirilmiştir.");
+            </script>
+
+        }
+        if (TempData["returnMessage"].ToString() == "error")
+        {
+            <script>
+                results("error", "İşleminiz esnasında hata ile karşılaşıldı.");
+            </script>
+        }
+
+    }
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+
+</html>

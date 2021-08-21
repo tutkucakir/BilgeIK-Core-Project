@@ -1,0 +1,107 @@
+﻿@model PagedList.Core.IPagedList<BilgeIK.WEBUI.ViewModels.CommentsJoinVM>
+
+@{
+    ViewData["Title"] = "Yorumlar";
+    Layout = "~/Views/Shared/_FrontLayout.cshtml";
+}
+
+
+
+
+<div id="video">
+    <div class="preloader">
+        <div class="preloader-bounce">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <header id="header">
+        <div class="container-fluid">
+            <div class="navbar">
+                <a asp-action="Index" id="logo" title="Bilge IK Logo">
+                    <img src="~/assets3/images/bilgeIK_logo2.png" height="60" />
+                </a>
+                <div class="navigation-row">
+                    <nav id="navigation">
+                        <button type="button" class="navbar-toggle"> <i class="fa fa-bars"></i> </button>
+                        <div class="nav-box navbar-collapse">
+                            <ul class="navigation-menu nav navbar-nav navbars" id="nav">
+                                <li data-menuanchor="slide01" class="active"><a asp-action="Index">Anasayfa</a></li>
+                                
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                    <li data-menuanchor="login"><a asp-area="" asp-controller="Auth" asp-action="LogOut">Çıkış (@User.Identity.Name)</a></li>
+                                }
+                                else
+                                {
+                                    <li data-menuanchor="login"><a asp-area="" asp-controller="Auth" asp-action="LogIn">Oturum Açın</a></li>
+                                    <li data-menuanchor="signup"><a asp-area="" asp-controller="Auth" asp-action="SignUp">Kayıt Olun!</a></li>
+                                }
+
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <video autoplay muted loop id="myVideo">
+        <source src="~/assets3/images/video-bg.mp4" type="video/mp4">
+    </video>
+
+
+
+
+    <div id="fullpage" class="fullpage-default">
+        <div class="section">
+            <div class="section-inner">
+                <table class="table table-striped table-borderless">
+                    <thead>
+                        <tr>
+                            <th>
+                                Yorum Gönderen Üye
+                            </th>
+                            <th>
+                                Firma Adı
+                            </th>
+                            <th>Yorum</th>
+                            <th>
+                                Gönderi Tarihi
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @item.AppUser.FirstName @item.AppUser.LastName
+                                </td>
+                                <td>
+                                    @item.Company.CompanyName
+                                </td>
+                                <td>
+                                    @item.CommentContent
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CreatedDate)
+                                </td>
+
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <pager class="pager-container" list="@Model" asp-controller="Home" asp-action="Comment" options="@SitePagedListRenderOptions.Boostrap4CustomizedText" />
+            </div>
+        </div>
+
+        
+
+
+    </div>
+
+
+
+</div>

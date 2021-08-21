@@ -1,0 +1,480 @@
+﻿@model Tuple<UserVM, IList<string>, string, List<UserDocument>, List<Leave>, List<Report>, List<SalaryBonus>>
+
+@{
+    ViewData["Title"] = "Personel Detayı";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-3 col-md-12">
+        <div class="card mb-md">
+            <div class="card-body">
+                <div class="d-flex align-items-center justify-content-center mb-lg">
+                    <span> </span>
+                    <div class="text-center">
+                        @if (Model.Item1.Photo == null)
+                        {
+                            <img class="avatar-xl rounded-circle" src="~/uploads/noavatar.gif">
+                        }
+                        else
+                        {
+                            <img class="avatar-xl rounded-circle" src="~/uploads/@Model.Item1.Photo">
+                        }
+
+                        <div class="card-title my-md font-weight-bold">@Model.Item1.FirstName @Model.Item1.LastName</div>
+                        <div>
+                            @Model.Item3 /
+                            @foreach (string item in Model.Item2)
+                            {
+                                <span>@item</span>
+                            }
+                        </div>
+                    </div>
+                </div>
+                <hr />
+
+                <div>
+                    <dl class="row">
+                        <dt class="col-sm-12">
+                            @Html.DisplayNameFor(model => model.Item1.JobTitle)
+                        </dt>
+                        <dd class="col-sm-12">
+                            @Html.DisplayFor(model => model.Item1.JobTitle)
+                        </dd>
+                        <dt class="col-sm-12">
+                            @Html.DisplayNameFor(model => model.Item1.NationalIDCardNumber)
+                        </dt>
+                        <dd class="col-sm-12">
+                            @Html.DisplayFor(model => model.Item1.NationalIDCardNumber)
+                        </dd>
+                        <dt class="col-sm-12">
+                            @Html.DisplayNameFor(model => model.Item1.BirthDate)
+                        </dt>
+                        <dd class="col-sm-12">
+                            @Html.DisplayFor(model => model.Item1.BirthDate)
+                        </dd>
+                        <dt class="col-sm-12">
+                            @Html.DisplayNameFor(model => model.Item1.FirstName)
+                        </dt>
+                        <dd class="col-sm-12">
+                            @Html.DisplayFor(model => model.Item1.FirstName)
+                        </dd>
+                        <dt class="col-sm-12">
+                            @Html.DisplayNameFor(model => model.Item1.LastName)
+                        </dt>
+                        <dd class="col-sm-12">
+                            @Html.DisplayFor(model => model.Item1.LastName)
+                        </dd>
+                        <dt class="col-sm-12">
+                            @Html.DisplayNameFor(model => model.Item1.Adress)
+                        </dt>
+                        <dd class="col-sm-12">
+                            @Html.DisplayFor(model => model.Item1.Adress)
+                        </dd>
+                        <dt class="col-sm-12">
+                            @Html.DisplayNameFor(model => model.Item1.Gender)
+                        </dt>
+                        <dd class="col-sm-12">
+                            @Html.DisplayFor(model => model.Item1.Gender)
+                        </dd>
+                        <dt class="col-sm-12">
+                            @Html.DisplayNameFor(model => model.Item1.Status)
+                        </dt>
+                        <dd class="col-sm-12">
+                            @Html.DisplayFor(model => model.Item1.Status)
+                        </dd>
+                        <dt class="col-sm-12">
+                            @Html.DisplayNameFor(model => model.Item1.LockoutEnd)
+                        </dt>
+                        <dd class="col-sm-12">
+                            @if (Model.Item1.LockoutEnd != null)
+                            {
+                                <span>@Model.Item1.LockoutEnd</span>
+                            }
+                            else
+                            {
+                                <span>Hesap Şuan Aktif</span>
+                            }
+                        </dd>
+                        <dt class="col-sm-12">
+                            @Html.DisplayNameFor(model => model.Item1.PhoneNumber)
+                        </dt>
+                        <dd class="col-sm-12">
+                            @Html.DisplayFor(model => model.Item1.PhoneNumber)
+                        </dd>
+                        <dt class="col-sm-12">
+                            @Html.DisplayNameFor(model => model.Item1.EmailConfirmed)
+                        </dt>
+                        <dd class="col-sm-12">
+                            @Html.DisplayFor(model => model.Item1.EmailConfirmed)
+                        </dd>
+                        <dt class="col-sm-12">
+                            @Html.DisplayNameFor(model => model.Item1.Email)
+                        </dt>
+                        <dd class="col-sm-12">
+                            @Html.DisplayFor(model => model.Item1.Email)
+                        </dd>
+                        <dt class="col-sm-12">
+                            @Html.DisplayNameFor(model => model.Item1.UserName)
+                        </dt>
+                        <dd class="col-sm-12">
+                            @Html.DisplayFor(model => model.Item1.UserName)
+                        </dd>
+
+                        <dt class="col-sm-12">
+                            @Html.DisplayNameFor(model => model.Item1.LockoutEnabled)
+                        </dt>
+                        <dd class="col-sm-12">
+                            @Html.DisplayFor(model => model.Item1.LockoutEnabled)
+                        </dd>
+                        <dt class="col-sm-12">
+                            @Html.DisplayNameFor(model => model.Item1.AccessFailedCount)
+                        </dt>
+                        <dd class="col-sm-12">
+                            @Html.DisplayFor(model => model.Item1.AccessFailedCount)
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-9 col-md-12">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card mb-lg">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card-title">Özlük Belgeleri</div>
+                            </div>
+                            <div class="col-md-12">
+                                <table class="table table-sm table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Dosya Adı</th>
+                                            <th>Ekleme Tarihi</th>
+                                            <th>Erişim</th>
+                                            <th class="text-center">Durumu</th>
+                                            <th class="text-center">İşlemler</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (UserDocument item in Model.Item4)
+                                        {
+                                            <tr>
+                                                <td>@item.Name</td>
+                                                <td>@item.CreatedDate</td>
+                                                <td><a href="~/uploads/@item.FileUrl" download>İndir</a></td>
+                                                <td class="text-center">
+
+                                                    @switch (item.Status.ToString())
+                                                    {
+                                                        case "Pending":
+                                                            <span class="text-muted">Onay Bekliyor</span>
+                                                            break;
+                                                        case "Actived":
+                                                            <span class="text-success">Aktif</span>
+                                                            break;
+                                                        case "DeActived":
+                                                            <span>Pasif</span>
+                                                            break;
+                                                        case "Deleted":
+                                                            <span class="text-danger">Silindi</span>
+                                                            break;
+                                                        default:
+                                                            <span>---</span>
+                                                            break;
+                                                    }
+                                                </td>
+                                                <td class="text-center text-nowrap">
+                                                    <a asp-action="EditMemberDocument" asp-route-id="@item.Id" class="btn btn-sm btn-raised btn-raised-primary"><i class="fa fa-edit"></i></a>
+                                                    <a asp-action="RemoveMemberDocument" asp-route-id="@item.Id" class="btn btn-sm btn-raised btn-raised-danger"><i class="fa fa-trash"></i></a>
+                                                </td>
+                                            </tr>
+                                        }
+                                        @if (Model.Item4.Count() == 0)
+                                        {
+                                            <tr>
+                                                <td colspan="5" class="text-center">PERSONEL İÇİN YÜKLÜ DOSYA BULUNAMADI.</td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                    @if (Model.Item4.Count() >= 10)
+                                    {
+                                        <tfoot>
+                                            <tr>
+                                                <td colspan="5" class="text-center">
+                                                    <a asp-action="MemberDocuments" asp-route-id="@Model.Item1.Id" class="btn btn-sm btn-raised btn-success">PERSONELİN DOSYA ARŞİVİ</a>
+                                                </td>
+                                            </tr>
+                                        </tfoot>
+                                    }
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="card mb-lg">
+
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card-title">İzin Kayıtları</div>
+                            </div>
+                            <div class="col-md-12">
+                                <table class="table table-sm table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>İzin Başlama Tarihi</th>
+                                            <th>İzin Bitiş Tarihi</th>
+                                            <th>Pl. Gün Sayısı</th>
+                                            <th>İzin Türü</th>
+                                            <th>Durumu</th>
+                                            <th>İşlemler</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (Leave item in Model.Item5)
+                                        {
+
+                                            <tr>
+                                                <td>@item.FromDate.ToShortDateString()</td>
+                                                <td>
+                                                    @if (item.ToDate == null)
+                                                    {
+                                                        <span>---</span>
+                                                    }
+                                                    else
+                                                    {
+                                                        DateTime tarih = item.ToDate ?? new();
+                                                        @tarih.ToShortDateString();
+                                                    }
+
+                                                </td>
+                                                <td>@item.PlannedDay.ToString()</td>
+                                                <td>@item.Definition.Name</td>
+                                                <td class="text-center">
+                                                    @switch (item.Status.ToString())
+                                                    {
+                                                        case "Pending":
+                                                            <span class="text-muted">Onay Bekliyor</span>
+                                                            break;
+                                                        case "Actived":
+                                                            <span class="text-success">Aktif</span>
+                                                            break;
+                                                        case "DeActived":
+                                                            <span>Pasif</span>
+                                                            break;
+                                                        case "Deleted":
+                                                            <span class="text-danger">Silindi</span>
+                                                            break;
+                                                        default:
+                                                            <span>---</span>
+                                                            break;
+                                                    }
+                                                </td>
+                                                <td>
+                                                    <a asp-action="DetailsMemberLeave" asp-route-id="@item.Id" class="btn btn-sm btn-raised btn-raised-info"><i class="fa fa-list"></i></a>
+                                                    <a asp-action="EditMemberLeave" asp-route-id="@item.Id" class="btn btn-sm btn-raised btn-raised-primary"><i class="fa fa-edit"></i></a>
+                                                    <a asp-action="RemoveMemberLeave" asp-route-id="@item.Id" class="btn btn-sm btn-raised btn-raised-danger"><i class="fa fa-trash"></i></a>
+                                                </td>
+                                            </tr>
+                                        }
+                                        @if (Model.Item5.Count() == 0)
+                                        {
+                                            <tr>
+                                                <td class="text-center" colspan="8">
+                                                    İZİN KAYDI BULUNAMADI.
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                    @if (Model.Item5.Count() >= 10)
+                                    {
+                                        <tfoot>
+                                            <tr>
+                                                <td colspan="8" class="text-center">
+                                                    <a asp-action="MemberLeaves" asp-route-id="@Model.Item1.Id" class="btn btn-sm btn-raised btn-success">PERSONELİN İZİN ARŞİVİ</a>
+                                                </td>
+                                            </tr>
+                                        </tfoot>
+                                    }
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="card mb-lg">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card-title">Rapor Kayıtları</div>
+                            </div>
+                            <div class="col-md-12">
+                                <table class="table table-sm table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Şikayet</th>
+                                            <th>Rap.Baş.Tr.</th>
+                                            <th>Rap.Bit.Tr</th>
+                                            <th>Rp.old.Gün</th>
+                                            <th>Rapor Türü</th>
+                                            <th>Durumu</th>
+                                            <th>İşlemler</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (Report item in Model.Item6)
+                                        {
+
+                                            <tr>
+                                                <td>@item.Condition</td>
+                                                <td>@item.FromDate.ToShortDateString()</td>
+                                                <td>@item.ToDate.ToShortDateString()</td>
+                                                <td>@item.PlannedDay.ToString()</td>
+                                                <td>@item.Definition.Name</td>
+                                                <td class="text-center">
+                                                    @switch (item.Status.ToString())
+                                                    {
+                                                        case "Pending":
+                                                            <span class="text-muted">Onay Bekliyor</span>
+                                                            break;
+                                                        case "Actived":
+                                                            <span class="text-success">Aktif</span>
+                                                            break;
+                                                        case "DeActived":
+                                                            <span>Pasif</span>
+                                                            break;
+                                                        case "Deleted":
+                                                            <span class="text-danger">Silindi</span>
+                                                            break;
+                                                        default:
+                                                            <span>---</span>
+                                                            break;
+                                                    }
+                                                </td>
+                                                <td>
+                                                    <a asp-action="DetailsMemberReport" asp-route-id="@item.Id" class="btn btn-sm btn-raised btn-raised-info"><i class="fa fa-list"></i></a>
+                                                    <a asp-action="EditMemberReport" asp-route-id="@item.Id" class="btn btn-sm btn-raised btn-raised-primary"><i class="fa fa-edit"></i></a>
+                                                    <a asp-action="RemoveMemberReport" asp-route-id="@item.Id" class="btn btn-sm btn-raised btn-raised-danger"><i class="fa fa-trash"></i></a>
+                                                </td>
+                                            </tr>
+                                        }
+                                        @if (Model.Item6.Count() == 0)
+                                        {
+                                            <tr>
+                                                <td class="text-center" colspan="9">
+                                                    RAPOR KAYDI BULUNAMADI.
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                    @if (Model.Item6.Count() >= 10)
+                                    {
+                                        <tfoot>
+                                            <tr>
+                                                <td colspan="9" class="text-center">
+                                                    <a asp-action="MemberReports" asp-route-id="@Model.Item1.Id" class="btn btn-sm btn-raised btn-success">PERSONELİN PAPOR ARŞİVİ</a>
+                                                </td>
+                                            </tr>
+                                        </tfoot>
+                                    }
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="card mb-lg">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card-title">Ek Ödeme Kayıtları</div>
+                            </div>
+                            <div class="col-md-12">
+                                <table class="table table-sm table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Ek Ödeme(TL)</th>
+                                            <th>Açıklama</th>
+                                            <th>Tarih</th>
+                                            <th class="text-center">Durum</th>
+                                            <th class="text-center">İşlemler</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (SalaryBonus item in Model.Item7)
+                                        {
+                                            <tr>
+                                                <td>@item.Bonus</td>
+                                                <td>
+                                                    @if (@item.Description.Length > 20)
+                                                    {
+                                                        @item.Description.Substring(0, 20)
+                                                    }
+                                                    else
+                                                    {
+                                                        @item.Description
+                                                    }
+                                                </td>
+                                                <td>
+                                                    @item.Date.ToShortDateString()
+                                                </td>
+                                                <td class="text-center">
+                                                    @switch (item.Status.ToString())
+                                                    {
+                                                        case "Pending":
+                                                            <span class="text-muted">Onay Bekliyor</span>
+                                                            break;
+                                                        case "Actived":
+                                                            <span class="text-success">Aktif</span>
+                                                            break;
+                                                        case "DeActived":
+                                                            <span>Pasif</span>
+                                                            break;
+                                                        case "Deleted":
+                                                            <span class="text-danger">Silindi</span>
+                                                            break;
+                                                        default:
+                                                            <span>---</span>
+                                                            break;
+                                                    }
+                                                </td>
+                                                <td>
+                                                    <a asp-action="DetailsMemberSBonus" asp-route-id="@item.Id" class="btn btn-sm btn-raised btn-raised-info"><i class="fa fa-list"></i></a>
+                                                    <a asp-action="EditMemberSBonus" asp-route-id="@item.Id" class="btn btn-sm btn-raised btn-raised-primary"><i class="fa fa-edit"></i></a>
+                                                    <a asp-action="RemoveMemberSBonus" asp-route-id="@item.Id" class="btn btn-sm btn-raised btn-raised-danger"><i class="fa fa-trash"></i></a>
+                                                </td>
+                                            </tr>
+                                        }
+                                        @if (Model.Item7.Count() == 0)
+                                        {
+                                            <tr>
+                                                <td colspan="5" class="text-center">EK MAAŞ KAYDI BULUNAMADI.</td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                    @if (Model.Item7.Count() >= 10)
+                                    {
+                                        <tfoot>
+                                            <tr>
+                                                <td colspan="9" class="text-center">
+                                                    <a asp-action="MemberSBonus" asp-route-id="@Model.Item1.Id" class="btn btn-sm btn-raised btn-success">PERSONELİN EK ÖDEME ARŞİVİ</a>
+                                                </td>
+                                            </tr>
+                                        </tfoot>
+                                    }
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

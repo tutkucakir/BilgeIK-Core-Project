@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="220px" height="419px" viewBox="0 0 220 419" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>Kander</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" transform="translate(0.000000, -12.000000)">
+            <g id="Kander" transform="translate(-230.189193, 235.973651) rotate(-11.000000) translate(230.189193, -235.973651) translate(-661.689193, -195.026349)">
+                <g id="Module" transform="translate(717.000000, 287.000000)">
+                    <rect id="Shape" fill="#FFFFFF" x="3" y="0" width="143" height="143"></rect>
+                    <path d="M36.75,71.5 C56.4941798,71.5 72.5,87.5058202 72.5,107.25 C72.5,126.99418 56.4941798,143 36.75,143 C17.0058202,143 1,126.99418 1,107.25 C1,87.5058202 17.0058202,71.5 36.75,71.5 Z" id="Shape" fill="#FF6242"></path>
+                    <rect id="Shape" fill="#00C9F2" x="0.5" y="0" width="71.5" height="71.5"></rect>
+                </g>
+                <g id="Module" transform="translate(575.000000, 430.000000)">
+                    <rect id="Shape" fill="#00C9F2" x="0" y="0" width="143" height="143"></rect>
+                    <rect id="Shape" fill="#FFFFFF" x="21.45" y="21.45" width="100.1" height="100.1"></rect>
+                </g>
+                <g id="Module" transform="translate(790.000000, 502.000000) rotate(-270.000000) translate(-790.000000, -502.000000) translate(718.000000, 430.000000)">
+                    <polygon id="Shape" fill="#3C61AF" points="0 1 143 1 143 144 0 144"></polygon>
+                    <polygon id="Shape" fill="#FFFFFF" transform="translate(72.481627, 71.690809) scale(-1, -1) translate(-72.481627, -71.690809) " points="0.981627183 0.190808995 143.981627 143.190809 0.981627183 143.190809"></polygon>
+                    <path d="M72.93,18.875 C102.54627,18.875 126.555,42.8837303 126.555,72.5 C126.555,102.11627 102.54627,126.125 72.93,126.125 C43.3137303,126.125 19.305,102.11627 19.305,72.5 C19.305,42.8837303 43.3137303,18.875 72.93,18.875 Z" id="Shape" fill="#FFFFFF"></path>
+                </g>
+                <g id="Module" transform="translate(575.000000, 287.000000)">
+                    <polygon id="Shape" fill="#FFDC09" transform="translate(71.500000, 71.500000) scale(-1, -1) translate(-71.500000, -71.500000) " points="0 0 143 143 0 143"></polygon>
+                    <polygon id="Shape" fill="#E4E7EB" transform="translate(107.250000, 35.750000) scale(-1, -1) translate(-107.250000, -35.750000) " points="71.5 0 143 71.5 71.5 71.5"></polygon>
+                </g>
+                <g id="Module" transform="translate(716.000000, 537.000000) rotate(-90.000000) translate(-716.000000, -537.000000) translate(537.000000, 391.000000)">
+                    <polygon id="Shape" fill="#FFDC09" transform="translate(71.500000, 71.500000) scale(-1, -1) translate(-71.500000, -71.500000) " points="0 0 143 143 0 143"></polygon>
+                    <rect id="Shape" fill="#00C9F2" x="286" y="220" width="71.5" height="71.5"></rect>
+                    <polygon id="Shape" fill="#E4E7EB" transform="translate(107.250000, 35.750000) scale(-1, -1) translate(-107.250000, -35.750000) " points="71.5 0 143 71.5 71.5 71.5"></polygon>
+                </g>
+                <g id="Module" transform="translate(575.000000, 145.000000)" fill="#FF6242">
+                    <polygon id="Shape" transform="translate(107.250000, 106.250000) scale(-1, -1) rotate(-180.000000) translate(-107.250000, -106.250000) " points="71.5 70.5 143 142 71.5 142"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
